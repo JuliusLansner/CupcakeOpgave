@@ -11,10 +11,14 @@ th, td {
     padding:15px;
 }
 
+.hero-img {
+    border-bottom: 2px solid #000;
+}
+
 .navbar {
     background-color: #EEE5D1;
-    border: 2px #000;
-    border-color: black;
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
     box-sizing: inherit;
     position: relative;
     display: flex;
@@ -25,4 +29,3 @@ th, td {
     padding-bottom: 0.5rem;
     margin-top: 10px
 }
-EEE5D1

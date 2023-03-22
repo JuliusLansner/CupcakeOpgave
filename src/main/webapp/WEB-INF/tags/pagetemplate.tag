@@ -19,7 +19,7 @@
 <body>
 <header>
     <a class="navbar-brand" href="index.jsp">
-        <img src="${pageContext.request.contextPath}/images/screen.png" width="3000px" class="img-fluid"/>
+        <img src="${pageContext.request.contextPath}/images/screen.png" width="3000px" class="img-fluid hero-img"/>
     </a>
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container">
