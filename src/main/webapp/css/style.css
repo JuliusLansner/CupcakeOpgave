@@ -11,7 +11,18 @@ th, td {
     padding:15px;
 }
 
-.navbar{
+.navbar {
     background-color: #EEE5D1;
+    border: 2px #000;
+    border-color: black;
+    box-sizing: inherit;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 10px
 }
 EEE5D1
