@@ -2,6 +2,7 @@ package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Ordre;
 import dat.backend.model.exceptions.DatabaseException;
+import dat.backend.model.persistence.ConnectionPool;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -39,6 +40,26 @@ ArrayList<Ordre> ordreliste = new ArrayList<>();
     }
 
     return ordreliste;
+}
+
+static void createOrdre(ConnectionPool connectionPool,String bruger) throws DatabaseException {
+    String sql = "INSERT INTO ordre(bruger) VALUES (?)";
+
+    try(Connection connection = connectionPool.getConnection()){
+
+        try(PreparedStatement pre = connection.prepareStatement(sql)){
+
+                pre.setString(1,bruger);
+
+                pre.executeUpdate();
+
+        }catch (SQLException ex){
+            throw new DatabaseException(ex, "Something with the sql or the java syntax is wrong");
+        }
+
+    }catch(SQLException | DatabaseException e){
+        throw new DatabaseException(e, "Error logging in. Something went wrong with the database");
+    }
 }
 
 }

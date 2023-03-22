@@ -19,9 +19,9 @@ CREATE TABLE `ordre` (
   UNIQUE KEY `idordre_UNIQUE` (`idordre`),
   KEY `fk_ordre_bruger1_idx` (`bruger`),
   CONSTRAINT `fk_ordre_bruger1` FOREIGN KEY (`bruger`) REFERENCES `bruger` (`brugernavn`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 CREATE TABLE `produkt` (
-  `produktid` int NOT NULL,
+  `produktid` int NOT NULL AUTO_INCREMENT,
   `top` varchar(45) NOT NULL,
   `bund` varchar(45) NOT NULL,
   `pris` int NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `produkt` (
   CONSTRAINT `fk_produkt_bund1` FOREIGN KEY (`bund`) REFERENCES `bund` (`navn`),
   CONSTRAINT `fk_produkt_ordre1` FOREIGN KEY (`ordreid`) REFERENCES `ordre` (`idordre`),
   CONSTRAINT `fk_produkt_top` FOREIGN KEY (`top`) REFERENCES `top` (`navn`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 CREATE TABLE `top` (
   `navn` varchar(45) NOT NULL,
   `pris` int NOT NULL,

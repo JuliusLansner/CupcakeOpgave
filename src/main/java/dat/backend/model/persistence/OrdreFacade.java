@@ -10,4 +10,10 @@ public class OrdreFacade {
     public static ArrayList<Ordre> getOrdrelist(ConnectionPool connectionPool) throws DatabaseException {
         return OrdreMapper.ordreliste(connectionPool);
     }
+
+    public static void createordre(ConnectionPool connectionPool,String bruger) throws DatabaseException {
+        OrdreMapper.createOrdre(connectionPool,bruger);
+    }
+
+
 }

@@ -26,4 +26,9 @@ class OrdreFacadeTest {
 
         System.out.println(ordrelist.get(0).getDato());
     }
+
+    @Test
+    void createordre() throws DatabaseException {
+        OrdreFacade.createordre(connectionPool,"Mikkel");
+    }
 }
