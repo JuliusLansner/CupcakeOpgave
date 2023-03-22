@@ -17,7 +17,10 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+<!--creating the navbar as well as header.-->
+<!-- -->
 <header>
+
     <a class="navbar-brand" href="index.jsp">
         <img src="${pageContext.request.contextPath}/images/screen.png" width="3000px" class="img-fluid"/>
     </a>
@@ -43,20 +46,17 @@
             </div>
         </div>
     </nav>
+
 </header>
 
-<div id="body" class="container mt-4" style="min-height: 400px;">
-    <h1><jsp:invoke fragment="header"/></h1>
-    <jsp:doBody/>
-</div>
-
-<!-- Footer -->
+<!-- Footer
+maybe add group name?
 <div class="container mt-3">
     <hr/>
     <div class="row mt-4">
         <div class="col">
-            Nørgaardsvej 30<br/>
-            2800 Lyngby
+             <br/>
+
         </div>
         <div class="col">
             <jsp:invoke fragment="footer"/><br/>
@@ -71,7 +71,7 @@
 </div>
 
 </div>
-
+-->
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

@@ -2,29 +2,34 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <t:pagetemplate>
-    <jsp:attribute name="header">
-         Welcome to the frontpage
+    <jsp:attribute name="header" >
+    Olsker CC
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the frontpage
+
+
     </jsp:attribute>
 
     <jsp:body>
 
-        <p>Startcode for 2nd semester </p>
-
-        <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
-        </c:if>
-
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
-        </c:if>
 
     </jsp:body>
 
 </t:pagetemplate>
+
+<html>
+<head>
+
+</head>
+<body>
+
+</body>
+</html>
+
+<h1 class="designtext">
+    Design din egen cupcake<br>
+    Login eller sign up for at fortsætte
+</h1>
