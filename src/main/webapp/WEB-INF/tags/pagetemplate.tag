@@ -29,7 +29,8 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 1</a>
+<%--                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 1</a>--%>
+                    <a class="nav-item nav-link" href="">${sessionScope.user.username}</a>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 2</a>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Page 3</a>
                     <c:if test="${sessionScope.user == null }">
@@ -49,25 +50,25 @@
     <jsp:doBody/>
 </div>
 
-<!-- Footer -->
-<div class="container mt-3">
-    <hr/>
-    <div class="row mt-4">
-        <div class="col">
-            Nørgaardsvej 30<br/>
-            2800 Lyngby
-        </div>
-        <div class="col">
-            <jsp:invoke fragment="footer"/><br/>
-            <p>&copy; 2022 Cphbusiness</p>
-        </div>
-        <div class="col">
-            Datamatikeruddannelsen<br/>
-            2. semester efterår 2022
-        </div>
-    </div>
+<%--<!-- Footer -->--%>
+<%--<div class="container mt-3">--%>
+<%--    <hr/>--%>
+<%--    <div class="row mt-4">--%>
+<%--        <div class="col">--%>
+<%--            Nørgaardsvej 30<br/>--%>
+<%--            2800 Lyngby--%>
+<%--        </div>--%>
+<%--        <div class="col">--%>
+<%--            <jsp:invoke fragment="footer"/><br/>--%>
+<%--            <p>&copy; 2022 Cphbusiness</p>--%>
+<%--        </div>--%>
+<%--        <div class="col">--%>
+<%--            Datamatikeruddannelsen<br/>--%>
+<%--            2. semester efterår 2022--%>
+<%--        </div>--%>
+<%--    </div>--%>
 
-</div>
+<%--</div>--%>
 
 </div>
 
