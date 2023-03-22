@@ -1,5 +1,12 @@
 /* CSS stylesheet  for application */
 
+.hero-img {
+    width: 100% !important;
+    background-color: #EEE5D1 !important;
+    border-bottom: 2px solid #000 !important;
+    text-align: center !important;
+}
+
 table {
     border-collapse: collapse;
     border: 1px solid silver;
@@ -10,10 +17,11 @@ th, td {
     border: 1px solid silver;
     padding:15px;
 }
+
 .navbar {
     background-color: #EEE5D1;
-    border: 2px #000;
-    border-color: black;
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
     box-sizing: inherit;
     position: relative;
     display: flex;
@@ -24,50 +32,30 @@ th, td {
     padding-bottom: 0.5rem;
     margin-top: 10px
 }
-.designtext{
-    flex-wrap: wrap;
+
+#body {
+    background-color: #EEE5D1;
+    border-bottom: 2px solid #000;
+    border-top: 2px solid #000;
+    width: 100%;
+    margin-top: 10px;
     text-align: center;
-
-}
-.dropbtn {
-    border: 2px #000;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-
-    cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+    padding-top: 20px;
 }
 
 .dropdown {
-    position: relative;
     display: inline-block;
+    margin: 10px;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
-
-.dropdown{
-    position:relative;
+.dropdown button {
+    background-color: white !important;
+    color: #333333 !important;
+    /* font-family: 'Montserrat', sans-serif !important; ----- FIX FOR HELVETE */
+    border: 0 !important;
+    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    padding: 10px 20px;
+    margin-top: 10px;
 }

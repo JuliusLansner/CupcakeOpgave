@@ -10,30 +10,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><jsp:invoke fragment="header"/></title>
+    <title>Cupcake</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-<!--creating the navbar as well as header.-->
-<!-- -->
 <header>
-
-    <a class="navbar-brand" href="index.jsp">
-        <img src="${pageContext.request.contextPath}/images/screen.png" width="3000px" class="img-fluid"/>
-    </a>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="hero-img">
+        <a class="navbar-brand" href="index.jsp">
+            <img src="${pageContext.request.contextPath}/images/screen.png" width="1000px" class="img-fluid"/>
+        </a>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container">
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-
 
                     <c:if test="${sessionScope.user == null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
@@ -41,22 +39,25 @@
                     <c:if test="${sessionScope.user != null }">
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
                     </c:if>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">kurv</a>
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/"> Kurv </a>
                 </div>
             </div>
         </div>
     </nav>
-
 </header>
 
-<!-- Footer
-maybe add group name?
+    <div id="body" style="min-height: 400px;">
+
+    <jsp:doBody/>
+</div>
+
+<!-- Footer -->
 <div class="container mt-3">
     <hr/>
     <div class="row mt-4">
         <div class="col">
-             <br/>
-
+            Nørgaardsvej 30<br/>
+            2800 Lyngby
         </div>
         <div class="col">
             <jsp:invoke fragment="footer"/><br/>
@@ -71,7 +72,7 @@ maybe add group name?
 </div>
 
 </div>
--->
+
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
