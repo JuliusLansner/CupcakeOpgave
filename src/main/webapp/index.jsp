@@ -19,40 +19,34 @@
                 Design din egen Cupcake
             </h1>
         </div>
-        <form action="" method="" name="" id="">
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <form action="/action_page.php" name="topping" id="topping">
+            <label for="topping"></label>
+            <select name="topping">
+                <option value="volvo"></option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+            </select>
 
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <a class="dropdown-item" href="#">Chokolade</a>
-                <a class="dropdown-item" href="#">Vanilla</a>
-                <a class="dropdown-item" href="#">Pistacio</a>
-            </div>
-        </div>
+            <label for="topping"></label>
+            <select name="topping">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+            </select>
+             <label for="topping"></label>
+            <select name="topping">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+            </select>
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Vælg bottom
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </div>
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Antal
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <a class="dropdown-item" href="#">1</a>
-                <a class="dropdown-item" href="#">2</a>
-                <a class="dropdown-item" href="#">3</a>
-            </div>
-        </div>
         </form>
+        </div>
         <c:if test="${sessionScope.user != null}">
             <button type="button" class="btn btn-primary">Læg i kurv</button>
         </c:if>

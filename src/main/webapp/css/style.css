@@ -46,6 +46,15 @@ th, td {
 .dropdown {
     display: inline-block;
     margin: 10px;
+    background-color: white !important;
+    color: #333333 !important;
+    /* font-family: 'Montserrat', sans-serif !important; ----- FIX FOR HELVETE */
+    border: 0 !important;
+    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    padding: 10px 20px;
+    margin-top: 10px;
 }
 
 .dropdown button {
