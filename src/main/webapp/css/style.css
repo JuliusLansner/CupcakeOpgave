@@ -62,5 +62,5 @@ th, td {
 
 
 .btn btn-primary{
-    float:right;
+    float:right !important;
 }
