@@ -22,7 +22,7 @@
 
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
+                Vælg topping
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <a class="dropdown-item" href="#">Chocolate</a>
@@ -33,7 +33,7 @@
 
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
+                Vælg bottom
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                 <a class="dropdown-item" href="#">Action</a>
@@ -44,14 +44,21 @@
 
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
+                Antal
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">1</a>
+                <a class="dropdown-item" href="#">2</a>
+                <a class="dropdown-item" href="#">3</a>
             </div>
         </div>
+        <c:if test="${sessionScope.user != null}">
+            <button type="button" class="btn btn-primary">Læg i kurv</button>
+        </c:if>
+        <c:if test="${sessionScope.user == null}">
+            <p>Login for at tilføje til kurv!</p>
+        </c:if>
+
 
 
 
