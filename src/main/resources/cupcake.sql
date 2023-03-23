@@ -7,92 +7,99 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema cupcake
+-- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema cupcake
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `startcode` DEFAULT CHARACTER SET utf8mb3 ;
-USE `startcode` ;
+CREATE SCHEMA IF NOT EXISTS `cupcake` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `cupcake` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`bund`
+-- Table `cupcake`.`bruger`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `startcode`.`bund` (
+CREATE TABLE IF NOT EXISTS `cupcake`.`bruger` (
+  `brugernavn` VARCHAR(45) NOT NULL,
+  `kodeord` INT NOT NULL,
+  `rolle` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`brugernavn`),
+  UNIQUE INDEX `brugernavn_UNIQUE` (`brugernavn` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `cupcake`.`bund`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cupcake`.`bund` (
   `navn` VARCHAR(45) NOT NULL,
   `pris` INT NOT NULL,
-  PRIMARY KEY (`navn`),
-  UNIQUE INDEX `navn_UNIQUE` (`navn` ASC) VISIBLE)
+  PRIMARY KEY (`navn`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`user`
+-- Table `cupcake`.`ordre`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `startcode`.`user` (
-  `username` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `role` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`username`),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`ordre`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `startcode`.`ordre` (
+CREATE TABLE IF NOT EXISTS `cupcake`.`ordre` (
   `idordre` INT NOT NULL AUTO_INCREMENT,
-  `user` VARCHAR(45) NOT NULL,
-  `dato` TIMESTAMP NOT NULL,
+  `bruger` VARCHAR(45) NOT NULL,
+  `dato` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idordre`),
   UNIQUE INDEX `idordre_UNIQUE` (`idordre` ASC) VISIBLE,
-  INDEX `fk_ordre_user1_idx` (`user` ASC) VISIBLE,
-  CONSTRAINT `fk_ordre_user1`
-    FOREIGN KEY (`user`)
-    REFERENCES `mydb`.`user` (`username`))
+  INDEX `fk_ordre_bruger1_idx` (`bruger` ASC) VISIBLE,
+  CONSTRAINT `fk_ordre_bruger1`
+    FOREIGN KEY (`bruger`)
+    REFERENCES `cupcake`.`bruger` (`brugernavn`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`topping`
+-- Table `cupcake`.`top`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `startcode`.`topping` (
+CREATE TABLE IF NOT EXISTS `cupcake`.`top` (
   `navn` VARCHAR(45) NOT NULL,
   `pris` INT NOT NULL,
-  PRIMARY KEY (`navn`),
-  UNIQUE INDEX `navn_UNIQUE` (`navn` ASC) VISIBLE)
+  PRIMARY KEY (`navn`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`produkt`
+-- Table `cupcake`.`produkt`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `startcode`.`produkt` (
-  `idprodukt` INT NOT NULL AUTO_INCREMENT,
-  `topping` VARCHAR(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `cupcake`.`produkt` (
+  `produktid` INT NOT NULL AUTO_INCREMENT,
+  `top` VARCHAR(45) NOT NULL,
   `bund` VARCHAR(45) NOT NULL,
   `pris` INT NOT NULL,
   `ordreid` INT NOT NULL,
-  PRIMARY KEY (`idprodukt`),
-  UNIQUE INDEX `idprodukt_UNIQUE` (`idprodukt` ASC) VISIBLE,
-  INDEX `fk_produkt_topping_idx` (`topping` ASC) VISIBLE,
+  PRIMARY KEY (`produktid`),
+  UNIQUE INDEX `produktid_UNIQUE` (`produktid` ASC) VISIBLE,
+  INDEX `fk_produkt_top_idx` (`top` ASC) VISIBLE,
   INDEX `fk_produkt_bund1_idx` (`bund` ASC) VISIBLE,
   INDEX `fk_produkt_ordre1_idx` (`ordreid` ASC) VISIBLE,
   CONSTRAINT `fk_produkt_bund1`
     FOREIGN KEY (`bund`)
-    REFERENCES `mydb`.`bund` (`navn`),
+    REFERENCES `cupcake`.`bund` (`navn`),
   CONSTRAINT `fk_produkt_ordre1`
     FOREIGN KEY (`ordreid`)
-    REFERENCES `mydb`.`ordre` (`idordre`),
-  CONSTRAINT `fk_produkt_topping`
-    FOREIGN KEY (`topping`)
-    REFERENCES `mydb`.`topping` (`navn`))
+    REFERENCES `cupcake`.`ordre` (`idordre`),
+  CONSTRAINT `fk_produkt_top`
+    FOREIGN KEY (`top`)
+    REFERENCES `cupcake`.`top` (`navn`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
