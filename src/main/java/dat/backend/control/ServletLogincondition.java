@@ -19,23 +19,16 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "ServletLogincondition", value = "/ServletLogincondition")
 public class ServletLogincondition extends HttpServlet {
-    private ConnectionPool connectionPool;
+
 
     @Override
-    public void init() throws ServletException {
-        this.connectionPool = ApplicationStart.getConnectionPool();
-    }
+
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // You shouldn't end up here with a GET-request, thus you get sent back to frontpage
         response.setContentType("text/html");
         HttpSession session = request.getSession();
        // session.setAttribute("user", null); // invalidating user object in session scope
-
-
-        System.out.println("fejl");
-
-
           session = request.getSession();
             // adding user object to session scope
                 User user = (User) session.getAttribute("user");
