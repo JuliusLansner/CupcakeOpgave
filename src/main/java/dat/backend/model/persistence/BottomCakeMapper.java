@@ -1,9 +1,7 @@
 package dat.backend.model.persistence;
 
 import dat.backend.model.entities.BottomCake;
-import dat.backend.model.entities.TopCake;
 import dat.backend.model.exceptions.DatabaseException;
-import dat.backend.model.persistence.ConnectionPool;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

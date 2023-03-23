@@ -9,7 +9,6 @@ import org.junit.jupiter.api.TestInstance;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class TopCakeFacadeTest {
     private ConnectionPool connectionPool;
@@ -21,8 +20,8 @@ class TopCakeFacadeTest {
     }
 
     @Test
-    void topCakeList() throws DatabaseException {
-        ArrayList<TopCake>list = TopCakeFacade.topCakeList(connectionPool);
+    void topCakeList() throws DatabaseException, SQLException {
+        ArrayList<TopCake>list = TopCakeFacade.topCakeList();
         System.out.println(list);
     }
 }

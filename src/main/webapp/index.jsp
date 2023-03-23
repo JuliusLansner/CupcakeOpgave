@@ -1,7 +1,10 @@
+<%@ page import="dat.backend.model.persistence.TopCakeFacade" %>
+<%@ page import="java.util.Arrays" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page errorPage="error.jsp" isErrorPage="false" %>
+<%@page errorPage="error.jsp" isErrorPage="false" %>'
+
 
 <t:pagetemplate>
     <jsp:attribute name="header">
@@ -30,6 +33,20 @@
                 <a class="dropdown-item" href="#">Pistacio</a>
             </div>
         </div>
+
+
+        <c:set var="topCakeList" value="<%= Arrays.asList(TopCakeFacade.topCakeList()) %>" />
+
+
+        <form  name="topping" id="topping">
+            <select name="top">
+                <c:forEach var="item" items="${topCakeList}">
+                    <option value="${item}">${item}</option>
+                </c:forEach>
+            </select>
+            <br><br>
+        </form>
+
 
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
