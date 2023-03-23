@@ -27,6 +27,7 @@ class UserMapper
                 if (rs.next())
                 {
                     String role = rs.getString("rolle");
+
                     user = new User(username, password, role);
                 } else
                 {
