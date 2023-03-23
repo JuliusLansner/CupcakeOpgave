@@ -59,16 +59,18 @@
     <hr/>
     <div class="row mt-4">
         <div class="col">
-            Nørgaardsvej 30<br/>
-            2800 Lyngby
+            C<br/>
+            C
         </div>
         <div class="col">
             <jsp:invoke fragment="footer"/><br/>
-            <p>&copy; 2022 Cphbusiness</p>
+            <p>A </p><br>
+            Malde, Mikkel, Julius grp 5 hold A 2023 sem 2 datamatiker
         </div>
         <div class="col">
-            Datamatikeruddannelsen<br/>
-            2. semester efterår 2022
+            P<br/>
+            K <br>
+
         </div>
     </div>
 
