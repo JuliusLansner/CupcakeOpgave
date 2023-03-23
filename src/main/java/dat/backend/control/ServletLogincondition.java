@@ -32,10 +32,11 @@ public class ServletLogincondition extends HttpServlet {
           session = request.getSession();
             // adding user object to session scope
                 User user = (User) session.getAttribute("user");
-
+        //System.out.println(user.getRole());
            if (user.getRole().equals("admin")){
-                request.getRequestDispatcher("WEB-INF/welcomeAdmin.jsp").forward(request, response);
-            } else if (user.getRole().equals("admin")){
+               request.getRequestDispatcher("WEB-INF/welcomeAdmin.jsp").forward(request, response);
+            } else if (!user.getRole().equals("admin")){
+
                 request.getRequestDispatcher("WEB-INF/welcomeUser.jsp").forward(request,response);
             }
 
