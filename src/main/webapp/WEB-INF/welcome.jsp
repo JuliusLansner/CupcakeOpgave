@@ -18,7 +18,12 @@
 
         <c:if test="${sessionScope.user != null}">
             <p>You are logged in with the role of "${sessionScope.user.role}".</p>
-            
+            <p>Click here to go back to the front page</p>
+            <form action="index.jsp">
+
+
+                <input type="submit" value="Frontpage">
+            </form>
         </c:if>
 
 
