@@ -48,12 +48,15 @@
         </form>
         </div>
         <c:if test="${sessionScope.user != null}">
-            <button type="button" class="btn btn-primary">Læg i kurv</button>
+            <button type="button" class="btn">Læg i kurv</button>
         </c:if>
         <c:if test="${sessionScope.user == null}">
             <p>Login for at tilføje til kurv!</p>
         </c:if>
 
+        <div class="picture container">
+            <img src="${pageContext.request.contextPath}/images/Cupcake-Transparent-Background-2.png" alt ="cupcake"/>
+        </div>
 
 
 

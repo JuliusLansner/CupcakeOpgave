@@ -42,34 +42,64 @@ th, td {
     text-align: center;
     padding-top: 20px;
 }
-
+.designtext{
+    padding-top:40px;
+}
 .dropdown {
     display: inline-block;
-    margin: 10px;
+    margin-top: 30px;
+}
+
+.dropdown select {
     background-color: white !important;
     color: #333333 !important;
-    /* font-family: 'Montserrat', sans-serif !important; ----- FIX FOR HELVETE */
+    /*font-family: Montserrat, sans-serif !important;*/
     border: 0 !important;
     box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
     -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
     -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
-    padding: 10px 20px;
-    margin-top: 10px;
+    padding: 10px 60px !important;
+    margin: 15px;
+    border-radius: 5px;
 }
 
-.dropdown button {
-    background-color: white !important;
-    color: #333333 !important;
-    /* font-family: 'Montserrat', sans-serif !important; ----- FIX FOR HELVETE */
-    border: 0 !important;
+
+.btn {
+    /*font-family: Montserrat, sans-serif;*/
+    background-color: #04143B !important;
+    border-radius: 5px;
+    color :white !important;
     box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
     -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
     -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
-    padding: 10px 20px;
-    margin-top: 10px;
+    padding: 8px 20px !important;
+    margin-left: 10px;
+    margin-top: -5px !important;
+
 }
 
-
-.btn btn-primary{
-    float:right !important;
+h2 {
+    font-size: 1.5rem !important;
 }
+
+.userinfo {
+    display: inline-flex;
+    justify-content: space-evenly;
+    padding-top: 10px;
+}
+
+.account, .orders {
+    width: 40%;
+    padding: 20px;
+    background-color: #f8efdc;
+    border-radius: 10px;
+    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+}
+
+.picture{
+    padding-top:50px;
+    padding-bottom: 120px;
+}
+

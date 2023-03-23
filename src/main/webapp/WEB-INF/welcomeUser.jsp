@@ -16,40 +16,15 @@
 
     <jsp:body>
 
-        <div class="container">
-            <c:if test="${sessionScope.user == null}">
-                <p>You are not logged in yet. You can do it here: <a
-                        href="../login.jsp">Login</a></p>
-            </c:if>
+        <div class="container userinfo">
 
-            <br><br><br><br>
+                <div class="account">
+                    <h2>Kontooplysninger</h2>
+                </div>
 
-            <nav class="navbar navbar-light bg-light">
-                <span class="navbar-text">Kontooplysninger</span>
-                <a href="https://www.dr.dk/drtv/">
-                    <button class="btn success">klik her</button>
-                </a>
-            </nav>
-
-            <nav class="navbar navbar-light bg-light">
-                <span class="navbar-text">Ordrehistorik</span>
-                <a href="https://www.dr.dk/drtv/">
-                    <button class="btn success">klik her</button>
-                </a>
-            </nav>
-
-
-            <!-- bootstrap JS tags -->
-            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-                    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-                    crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-                    crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-                    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-                    crossorigin="anonymous"></script>
-
+                <div class="orders">
+                    <h2>Ordrehistorik</h2>
+                </div>
         </div>
 
     </jsp:body>
