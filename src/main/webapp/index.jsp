@@ -19,13 +19,13 @@
                 Design din egen Cupcake
             </h1>
         </div>
-
+        <form action="" method="" name="" id="">
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Vælg topping
+
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <a class="dropdown-item" href="#">Chocolate</a>
+                <a class="dropdown-item" href="#">Chokolade</a>
                 <a class="dropdown-item" href="#">Vanilla</a>
                 <a class="dropdown-item" href="#">Pistacio</a>
             </div>
@@ -52,6 +52,7 @@
                 <a class="dropdown-item" href="#">3</a>
             </div>
         </div>
+        </form>
         <c:if test="${sessionScope.user != null}">
             <button type="button" class="btn btn-primary">Læg i kurv</button>
         </c:if>
