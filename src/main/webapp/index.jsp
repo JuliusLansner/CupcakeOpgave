@@ -30,7 +30,7 @@
 
         <form name="topping" id="topping">
             <select name="top">
-                <c:forEach var="item" items="${requestScope.bottomliste}">
+                <c:forEach var="item" items="${sessionScope.bottomliste}">
                     <option value="${item.navn}">${item.navn}</option>
                 </c:forEach>
             </select>
@@ -40,7 +40,7 @@
 
         <form name="bottom" id="bottom">
             <select name="bund">
-                <c:forEach var="item" items="${requestScope.topliste}">
+                <c:forEach var="item" items="${sessionScope.topliste}">
                     <option value="${item}">${item}</option>
                 </c:forEach>
             </select>

@@ -15,7 +15,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
 <header>
@@ -32,48 +33,32 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+
+            <!-- start of "admin" (shows the currently logged in users name) -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/ServletLogincondition">${sessionScope.user.username}</a>
+                    <a class="nav-item nav-link" style="font-size: 30px"
+                       href="${pageContext.request.contextPath}/ServletLogincondition">${sessionScope.user.username}</a>
 
-                    <c:if test="${sessionScope.user == null }">
-                        <div class="dropdown">
-                            <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="${pageContext.request.contextPath}/images/profil.png" width="50" alt="Kurv">
-                            </button>
-                            <div class="dropdown-menu1" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">login</a>
-                                <a class="dropdown-item" href="https://lagkagehuset.dk/">opret bruger</a>
-                            </div>
-                        </div>
-<%--                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>--%>
-                    </c:if>
-                    <c:choose>
-                        <c:when test="${sessionScope.user != null}">
-                            <div class="dropdown">
-                                <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="${pageContext.request.contextPath}/images/profil.png" width="50" alt="Kurv">
-                                </button>
-                                <div class="dropdown-menu1" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">login</a>
-                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">log ud</a>
-                                </div>
-                            </div>
-                        </c:when>
-                        <c:otherwise>
-                            <%-- You can add code here to display something else if the user is not logged in --%>
-                        </c:otherwise>
-                    </c:choose>
-
-
+                    <!-- start of profile logo with dropdown menus that allows for login and logout -->
                     <div class="dropdown">
-                        <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="${pageContext.request.contextPath}/images/profil.png" width="50" height="50" alt="Kurv">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">log ind</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">log ud</a>
+                        </div>
+                    </div>
+
+                    <!-- start of shopping basket logo with drop down menus -->
+                    <div class="dropdown">
+                        <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="${pageContext.request.contextPath}/images/bag.png" width="50" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="https://lagkagehuset.dk/">kage</a>
-                            <a class="dropdown-item" href="https://lagkagehuset.dk/">muffin</a>
-                            <a class="dropdown-item" href="https://lagkagehuset.dk/">citronmåne</a>
                         </div>
                     </div>
 
@@ -89,19 +74,18 @@
 
 
                 </div>
-                    </li>
+                </li>
 
 
+                </li>
 
-                    </li>
-
-                </div>
             </div>
+        </div>
         </div>
     </nav>
 </header>
 
-    <div id="body" style="min-height: 400px;">
+<div id="body" style="min-height: 400px;">
 
     <jsp:doBody/>
 </div>
@@ -115,7 +99,8 @@
             C
         </div>
         <div class="col">
-            <jsp:invoke fragment="footer"/><br/>
+            <jsp:invoke fragment="footer"/>
+            <br/>
             <p>A </p><br>
             Malde, Mikkel, Julius grp 5 hold A 2023 sem 2 datamatiker
         </div>
