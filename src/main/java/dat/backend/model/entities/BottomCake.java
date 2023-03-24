@@ -28,9 +28,6 @@ public class BottomCake {
 
     @Override
     public String toString() {
-        return "BottomCake{" +
-                "navn='" + navn + '\'' +
-                ", pris=" + pris +
-                '}';
+        return navn;
     }
 }

@@ -23,8 +23,8 @@ class BottomCakeFacadeTest {
 
     @Test
     void bottomlist() throws DatabaseException {
-        ArrayList<BottomCake> list = BottomCakeFacade.bottomlist(connectionPool);
+        ArrayList<BottomCake> list = BottomCakeFacade.bottomlist();
 
-        System.out.println(list);
+        System.out.println(list.get(0).getPris());
     }
 }

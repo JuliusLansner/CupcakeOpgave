@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class BottomCakeMapper {
 
-    static ArrayList<BottomCake> bottomList(ConnectionPool connectionPool) throws DatabaseException {
+    public static ArrayList<BottomCake> bottomList(ConnectionPool connectionPool) throws DatabaseException {
         String sql ="SELECT * FROM bund";
         ArrayList<BottomCake> bundlist = new ArrayList<>();
 
@@ -21,11 +21,12 @@ public class BottomCakeMapper {
                 ResultSet rs = pre.executeQuery();
 
                 while(rs.next()){
-                    BottomCake bottomCake = new BottomCake(null,0);
 
 
-                    bottomCake.setNavn(rs.getString(1));
-                    bottomCake.setPris(rs.getInt(2));
+                    String navn = rs.getString(1);
+                    int kode = rs.getInt(2);
+
+                    BottomCake bottomCake = new BottomCake(navn,kode);
 
                     bundlist.add(bottomCake);
                 }

@@ -22,13 +22,13 @@ class OrdreFacadeTest {
 
     @Test
     void getOrdrelist() throws DatabaseException {
-        ArrayList<Ordre> ordrelist = OrdreFacade.getOrdrelist(connectionPool);
+        ArrayList<Ordre> ordrelist = OrdreFacade.getOrdrelist();
 
         System.out.println(ordrelist.get(0).getDato());
     }
 
     @Test
     void createordre() throws DatabaseException {
-        OrdreFacade.createordre(connectionPool,"Mikkel");
+        OrdreFacade.createordre("Mikkel");
     }
 }
