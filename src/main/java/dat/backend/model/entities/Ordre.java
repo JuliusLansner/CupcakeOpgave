@@ -13,6 +13,10 @@ public class Ordre {
     this.dato = dato;
   }
 
+  public Ordre(String brugernavn) {
+    this.brugernavn = brugernavn;
+  }
+
   public void setOrdreId(int ordreId) {
     this.ordreId = ordreId;
   }

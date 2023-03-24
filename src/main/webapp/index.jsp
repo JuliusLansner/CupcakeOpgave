@@ -1,9 +1,13 @@
 <%@ page import="dat.backend.model.persistence.TopCakeFacade" %>
+<%@ page import="dat.backend.model.entities.TopCake" %>
 <%@ page import="java.util.Arrays" %>
+<%@ page import="dat.backend.model.persistence.BottomCakeFacade" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page errorPage="error.jsp" isErrorPage="false" %>'
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+<%@page errorPage="error.jsp" isErrorPage="false" %>
+'
 
 
 <t:pagetemplate>
@@ -23,24 +27,20 @@
             </h1>
         </div>
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Vælg topping
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <a class="dropdown-item" href="#">Chocolate</a>
-                <a class="dropdown-item" href="#">Vanilla</a>
-                <a class="dropdown-item" href="#">Pistacio</a>
-            </div>
-        </div>
 
-
-        <c:set var="topCakeList" value="<%= Arrays.asList(TopCakeFacade.topCakeList()) %>" />
-
-
-        <form  name="topping" id="topping">
+        <form name="topping" id="topping">
             <select name="top">
-                <c:forEach var="item" items="${topCakeList}">
+                <c:forEach var="item" items="${requestScope.bottomliste}">
+                    <option value="${item.navn}">${item.navn}</option>
+                </c:forEach>
+            </select>
+            <br><br>
+        </form>
+
+
+        <form name="bottom" id="bottom">
+            <select name="bund">
+                <c:forEach var="item" items="${requestScope.topliste}">
                     <option value="${item}">${item}</option>
                 </c:forEach>
             </select>
@@ -48,35 +48,38 @@
         </form>
 
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Vælg bottom
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+        <form name="antal" id="antal">
+            <select name="antal">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <br><br>
+        </form>
+
+
+        <img src="image.png" id="dropdown-trigger">
+        <div id="dropdown-list">
+            <select>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
         </div>
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Antal
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <a class="dropdown-item" href="#">1</a>
-                <a class="dropdown-item" href="#">2</a>
-                <a class="dropdown-item" href="#">3</a>
-            </div>
-        </div>
+
+        <form action="/ServletTilføjTilKurv" method="post">
+            <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
+        </form>
+
         <c:if test="${sessionScope.user != null}">
             <button type="button" class="btn btn-primary">Læg i kurv</button>
         </c:if>
+
         <c:if test="${sessionScope.user == null}">
             <p>Login for at tilføje til kurv!</p>
         </c:if>
-
-
 
 
     </jsp:body>

@@ -27,9 +27,6 @@ public class TopCake {
 
     @Override
     public String toString() {
-        return "TopCake{" +
-                "navn='" + navn + '\'' +
-                ", pris=" + pris +
-                '}';
+        return navn;
     }
 }
