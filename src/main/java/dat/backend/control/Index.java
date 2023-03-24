@@ -35,8 +35,8 @@ public class Index extends HttpServlet {
         }
 
         session.setAttribute("ifloggedin",ifloggedin);
-        request.setAttribute("topliste",topcakes);
-        request.setAttribute("bottomliste",bottomCakes);
+        session.setAttribute("topliste",topcakes);
+        session.setAttribute("bottomliste",bottomCakes);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
