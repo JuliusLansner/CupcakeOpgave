@@ -59,7 +59,7 @@ public class UserMapper {
     public static void indsætBeløb(int beløb, String brugernavn, ConnectionPool connectionPool) throws DatabaseException {
 
         Logger.getLogger("web").log(Level.INFO, "");
-        String penge = "UPDATE bruger SET konto = ? WHERE brugernavn = ?";
+        String penge = "UPDATE bruger SET saldo = ? WHERE brugernavn = ?";
 
             try (Connection connection = connectionPool.getConnection();
                  PreparedStatement statement = connection.prepareStatement(penge)) {
