@@ -5,10 +5,14 @@ import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.UserFacade;
+import dat.backend.model.persistence.UserMapper;
 
 import javax.servlet.*;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,9 +20,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-
 @WebServlet(name = "ServletLogincondition", value = "/ServletLogincondition")
 public class ServletLogincondition extends HttpServlet {
+
+    private ConnectionPool connectionPool;
+
+    @Override
+    public void init() throws ServletException {
+        this.connectionPool = ApplicationStart.getConnectionPool();
+    }
 
 
     @Override
@@ -28,23 +38,45 @@ public class ServletLogincondition extends HttpServlet {
         // You shouldn't end up here with a GET-request, thus you get sent back to frontpage
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-       // session.setAttribute("user", null); // invalidating user object in session scope
-          session = request.getSession();
-            // adding user object to session scope
-                User user = (User) session.getAttribute("user");
+        // session.setAttribute("user", null); // invalidating user object in session scope
+        session = request.getSession();
+        // adding user object to session scope
+        User user = (User) session.getAttribute("user");
         //System.out.println(user.getRole());
-           if (user.getRole().equals("admin")){
-               request.getRequestDispatcher("WEB-INF/welcomeAdmin.jsp").forward(request, response);
-            } else if (!user.getRole().equals("admin")){
+        if (user.getRole().equals("admin")) {
+            request.getRequestDispatcher("WEB-INF/welcomeAdmin.jsp").forward(request, response);
+        } else if (!user.getRole().equals("admin")) {
 
-                request.getRequestDispatcher("WEB-INF/welcomeUser.jsp").forward(request,response);
-            }
+            request.getRequestDispatcher("WEB-INF/welcomeUser.jsp").forward(request, response);
+        }
+    }
 
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+        // skal det være number/html eller text/html?
+        response.setContentType("number/html");
 
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+
+        String brugernavn = request.getParameter("brugernavn");
+        int beløb = 0;
+
+        try {
+            beløb = Integer.parseInt(request.getParameter("belob"));
+        } catch (NumberFormatException numberFormatException) {
+            System.out.println("int beløb is null");
+        }
+
+        session.setAttribute("beløb", beløb);
+
+        try {
+            UserFacade.indsætBeløb(beløb, brugernavn, connectionPool);
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+        }
+        request.getRequestDispatcher("WEB-INF/welcomeAdmin.jsp").forward(request, response);
     }
 
 
 }
-
-

@@ -52,6 +52,16 @@
 
 
         </div>
+        <h3>Her kan du indsætte et beløb</h3>
+        <form method="post" action="ServletLogincondition" >
+            <label for="beløb">beløb:</label>
+            <input type="number" id="beløb" name="belob"/>
+
+            <label for="brugernavn">brugernavn: </label>
+            <input type="text" id="brugernavn" name="brugernavn"/>
+
+            <button type="submit">indsæt beløb</button>
+        </form>
 
     </jsp:body>
 

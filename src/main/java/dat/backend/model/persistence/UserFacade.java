@@ -14,4 +14,8 @@ public class UserFacade
     {
         return UserMapper.createUser(username, password, role, connectionPool);
     }
+
+    public static void indsætBeløb(int beløb, String brugernavn, ConnectionPool connectionPool) throws DatabaseException {
+         UserMapper.indsætBeløb(beløb, brugernavn, connectionPool);
+    }
 }

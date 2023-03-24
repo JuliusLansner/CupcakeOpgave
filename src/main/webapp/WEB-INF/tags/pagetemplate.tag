@@ -37,12 +37,64 @@
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/ServletLogincondition">${sessionScope.user.username}</a>
 
                     <c:if test="${sessionScope.user == null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+                        <div class="dropdown">
+                            <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="${pageContext.request.contextPath}/images/profil.png" width="50" alt="Kurv">
+                            </button>
+                            <div class="dropdown-menu1" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">login</a>
+                                <a class="dropdown-item" href="https://lagkagehuset.dk/">opret bruger</a>
+                            </div>
+                        </div>
+<%--                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>--%>
                     </c:if>
-                    <c:if test="${sessionScope.user != null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
-                    </c:if>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/"> Kurv </a>
+                    <c:choose>
+                        <c:when test="${sessionScope.user != null}">
+                            <div class="dropdown">
+                                <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="${pageContext.request.contextPath}/images/profil.png" width="50" alt="Kurv">
+                                </button>
+                                <div class="dropdown-menu1" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">login</a>
+                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">log ud</a>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <%-- You can add code here to display something else if the user is not logged in --%>
+                        </c:otherwise>
+                    </c:choose>
+
+
+                    <div class="dropdown">
+                        <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="${pageContext.request.contextPath}/images/bag.png" width="50" alt="Kurv">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="https://lagkagehuset.dk/">kage</a>
+                            <a class="dropdown-item" href="https://lagkagehuset.dk/">muffin</a>
+                            <a class="dropdown-item" href="https://lagkagehuset.dk/">citronmåne</a>
+                        </div>
+                    </div>
+
+
+                    <!-- Required Bootstrap CSS -->
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+                    <!-- Required jQuery library -->
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+                    <!-- Required Bootstrap JavaScript -->
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+                </div>
+                    </li>
+
+
+
+                    </li>
+
                 </div>
             </div>
         </div>
