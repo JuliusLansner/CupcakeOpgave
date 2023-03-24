@@ -36,14 +36,16 @@
 
             <!-- start of "admin" (shows the currently logged in users name) -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" style="font-size: 30px"
+                <div class="navbar-nav" style="display: flex; align-items: flex-end;">
+                    <a class="nav-item nav-link"
                        href="${pageContext.request.contextPath}/ServletLogincondition">${sessionScope.user.username}</a>
 
                     <!-- start of profile logo with dropdown menus that allows for login and logout -->
+                    <!-- navbar is 86px tall -->
+
                     <div class="dropdown">
                         <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/images/profil.png" width="50" height="50" alt="Kurv">
+                            <img src="${pageContext.request.contextPath}/images/profil.png" width="40" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">log ind</a>
@@ -55,7 +57,7 @@
                     <div class="dropdown">
                         <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/images/bag.png" width="50" alt="Kurv">
+                            <img src="${pageContext.request.contextPath}/images/bag.png" width="40" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="https://lagkagehuset.dk/">kage</a>
