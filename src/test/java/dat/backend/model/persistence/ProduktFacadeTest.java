@@ -9,7 +9,7 @@ class ProduktFacadeTest {
 
     @Test
     void createProduct() throws DatabaseException {
-        int ordreid = OrdreFacade.createordre("user");
-        ProduktFacade.createProduct("jordbær","chokolade",11,ordreid,2);
+
+        ProduktFacade.createProduct("jordbær","chokolade",20,50,3);
     }
 }
