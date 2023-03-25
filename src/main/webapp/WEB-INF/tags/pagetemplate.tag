@@ -51,7 +51,14 @@
                             <img src="${pageContext.request.contextPath}/images/profil.png" width="40" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">log ind</a>
+
+                            <c:if test="${sessionScope.user != null}">
+                            </c:if>
+
+                            <c:if test="${sessionScope.user == null}">
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">log ind</a>
+                                <a class ="dropdown-item" href="${pageContext.request.contextPath}/createuser.jsp">Sign up</a>
+                            </c:if>
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">log ud</a>
                         </div>
                     </div>
