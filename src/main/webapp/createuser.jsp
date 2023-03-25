@@ -25,13 +25,13 @@
         <label for="rolle">Rolle: </label>
         <input type="text" id="rolle" name="rolle"/>
 
-        <input type="submit"  value="Sign up"/>
+        <input class="signupknap" type="submit"  value="Sign up"/>
 
       </form>
       <form action="index.jsp">
 
 
-        <input type="submit" value="Back">
+        <input class="signupknap" type="submit" value="Back">
       </form>
     </div>
   </jsp:body>

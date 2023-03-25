@@ -131,3 +131,25 @@ h2 {
     color: black;
     margin-bottom: -10px;
 }
+.loginbuttons{
+
+    color: #333333 !important;
+    /*font-family: Montserrat, sans-serif !important;*/
+    border: 0 !important;
+    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    padding: 10px 60px !important;
+    margin: auto;
+
+    border-radius: 5px;
+    width: 350px;
+}
+.loginknap{
+    width:auto;
+    margin-top:10px;
+}
+.signupknap{
+    width:auto;
+    margin-top:10px;
+}
