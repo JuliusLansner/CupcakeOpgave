@@ -10,6 +10,6 @@ class ProduktFacadeTest {
     @Test
     void createProduct() throws DatabaseException {
 
-        ProduktFacade.createProduct("jordbær","chokolade",20,50,3);
+        ProduktFacade.createProduct("jordbær","chokolade",20,50,"3");
     }
 }
