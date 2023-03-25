@@ -36,9 +36,12 @@
 
             <!-- start of "admin" (shows the currently logged in users name) -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+
+                <!-- style gør at man kan bruges css direkte -->
                 <div class="navbar-nav" style="display: flex; align-items: flex-end;">
                     <a class="nav-item nav-link"
-                       href="${pageContext.request.contextPath}/ServletLogincondition">${sessionScope.user.username}</a>
+                       href="${pageContext.request.contextPath}/ServletLogincondition">${sessionScope.user.username}
+                    </a>
 
                     <!-- start of profile logo with dropdown menus that allows for login and logout -->
                     <!-- navbar is 86px tall -->
@@ -65,14 +68,6 @@
                     </div>
 
 
-                    <!-- Required Bootstrap CSS -->
-                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-                    <!-- Required jQuery library -->
-                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-
-                    <!-- Required Bootstrap JavaScript -->
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
                 </div>
@@ -109,18 +104,24 @@
         <div class="col">
             P<br/>
             K <br>
-
         </div>
     </div>
-
 </div>
 
-</div>
+
+<!-- are these lines nessesary? -->
+<%--<!-- Required Bootstrap CSS -->--%>
+<%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">--%>
+<%--<!-- Required jQuery library -->--%>
+<%--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>--%>
+
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+<%--<!-- Required Bootstrap JavaScript -->--%>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </body>
 </html>

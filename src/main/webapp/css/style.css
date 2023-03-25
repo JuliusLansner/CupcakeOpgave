@@ -106,7 +106,7 @@ h2 {
 .kurv{
     background-color: #EEE5D1;
 }
-
+/* here you can adjust the icons and username in the navnbar  */
 .navbar-nav{
     transform: translateY(-15px);
 }
