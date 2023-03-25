@@ -17,18 +17,23 @@ import java.util.ArrayList;
 public class ServletTilfjTilKurv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        //22-26 henter variable.
-        String topCake = request.getParameter("top");
-        String bottomCake = request.getParameter("bund");
-        String antal = request.getParameter("antal");
-        int ordreId = 0;
         HttpSession session = request.getSession(); //Henter session
-        User user = (User) session.getAttribute("user");
+
         boolean ifloggedin = (boolean) session.getAttribute("ifloggedin");
 
+        if (ifloggedin == false) { //Sørger for at man kun kan lave bestilling hvis man er logget ind
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
 
-        // 31-32 Henter lister ned med objekter
+        //Henter variable fra index.jsp.
+        String topCake = request.getParameter("top");
+        String bottomCake = request.getParameter("bottom");
+        String antal = request.getParameter("antal");
+        User user = (User) session.getAttribute("user");
+        int ordreId = (int) session.getAttribute("orderId");
+
+
+        // Henter lister ned med objekter
         ArrayList<TopCake> topcakeList = new ArrayList<>();
         try {
             topcakeList = TopCakeFacade.topCakeList();
@@ -42,38 +47,34 @@ public class ServletTilfjTilKurv extends HttpServlet {
             e.printStackTrace();
         }
 
-        System.out.println("1");
-        // 35-36 Laver tomme objekter
+
+        // Laver tomme objekter
         TopCake topCake1 = null;
         BottomCake bottomCake1 = null;
-        System.out.println("2");
-        for (TopCake cake : topcakeList) { //Laver topcake objekt
+
+
+        for (TopCake cake : topcakeList) { //Henter topcake objektet
             if (cake.getNavn().equalsIgnoreCase(topCake)) {
                 topCake1 = cake;
             }
         }
 
-        for (BottomCake cake : bottomcakeList) { //Laver bottomcake objekt
+        for (BottomCake cake : bottomcakeList) { //Henter bottomcake objektet
             if (cake.getNavn().equals(bottomCake)) {
                 System.out.println("navn på kage"+cake.getNavn());
                 bottomCake1 = cake;
             }
         }
-        System.out.println("3");
+
 
         if (ifloggedin == false) { //Sørger for at man kun kan lave bestilling hvis man er logget ind
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
-        System.out.println("4");
-        try {
-            ordreId = OrdreFacade.createordre(user.getUsername());
-        } catch (DatabaseException e) {
-            e.printStackTrace();
-        }
-        System.out.println("5");
+
+
+
         ProduktFacade.createProduct(topCake1.getNavn(), bottomCake1.getNavn(), bottomCake1.getPris() + topCake1.getPris(), ordreId, antal);
-        System.out.println("6");
 
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
