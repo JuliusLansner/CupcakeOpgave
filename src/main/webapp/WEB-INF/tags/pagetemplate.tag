@@ -39,28 +39,35 @@
 
                 <!-- style gør at man kan bruges css direkte -->
                 <div class="navbar-nav" style="display: flex; align-items: flex-end;">
-                    <a class="nav-item nav-link"
+                    <a class="logged-in"
                        href="${pageContext.request.contextPath}/ServletLogincondition">${sessionScope.user.username}
                     </a>
 
                     <!-- start of profile logo with dropdown menus that allows for login and logout -->
                     <!-- navbar is 86px tall -->
 
-                    <div class="dropdown">
+                    <div class="dropdown-buttons">
                         <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/images/profil.png" width="40" alt="Kurv">
+                            <img src="${pageContext.request.contextPath}/images/profil.png" width="30" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">log ind</a>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">log ud</a>
+
+                            <c:if test="${sessionScope.user != null}">
+                            </c:if>
+
+                            <c:if test="${sessionScope.user == null}">
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">Log ind</a>
+                                <a class ="dropdown-item" href="${pageContext.request.contextPath}/createuser.jsp">Opret bruger</a>
+                            </c:if>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Log ud</a>
                         </div>
                     </div>
 
                     <!-- start of shopping basket logo with drop down menus -->
-                    <div class="dropdown">
+                    <div class="dropdown-buttons">
                         <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/images/bag.png" width="40" alt="Kurv">
+                            <img src="${pageContext.request.contextPath}/images/bag.png" width="30" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="https://lagkagehuset.dk/">kage</a>

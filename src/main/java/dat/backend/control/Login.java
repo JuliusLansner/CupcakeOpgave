@@ -47,6 +47,7 @@ public class Login extends HttpServlet
 
             //Så der kan ses der er logged in.
             boolean ifloggedin = true;
+
             session.setAttribute("ifloggedin",ifloggedin);
 
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
