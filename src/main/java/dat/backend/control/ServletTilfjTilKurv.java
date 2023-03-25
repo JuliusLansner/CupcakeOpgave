@@ -18,20 +18,12 @@ public class ServletTilfjTilKurv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(); //Henter session
-
-        //20-26 henter variable.
+        //22-26 henter variable.
         String topCake = request.getParameter("top");
-        System.out.println("topcake"+topCake);
         String bottomCake = request.getParameter("bund");
-        System.out.println("hey");
         String antal = request.getParameter("antal");
-        System.out.println("hello");
         int ordreId = 0;
+        HttpSession session = request.getSession(); //Henter session
         User user = (User) session.getAttribute("user");
         boolean ifloggedin = (boolean) session.getAttribute("ifloggedin");
 
@@ -80,10 +72,14 @@ public class ServletTilfjTilKurv extends HttpServlet {
             e.printStackTrace();
         }
         System.out.println("5");
-        System.out.println("top = " + topCake1.getNavn()+"bot =" + bottomCake1.getNavn());
         ProduktFacade.createProduct(topCake1.getNavn(), bottomCake1.getNavn(), bottomCake1.getPris() + topCake1.getPris(), ordreId, antal);
         System.out.println("6");
 
         request.getRequestDispatcher("index.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 }

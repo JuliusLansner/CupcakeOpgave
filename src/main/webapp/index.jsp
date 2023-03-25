@@ -28,44 +28,36 @@
         </div>
 
 
-        <form name="bottom" id="bottom">
-            <select name="bottom">
-                <c:forEach var="item" items="${sessionScope.bottomliste}">
-                    <option value="${item.navn}">${item.navn}</option>
-                </c:forEach>
-            </select>
-            <br><br>
-        </form>
 
 
-        <form action="ServletSetTop" name="top" id="top" method="get">
-            <select>
-                <option value="Vælg top">vælg top</option>
-                <c:forEach var="item" items="${sessionScope.topliste}">
-                    <option value="${item.navn}">${item.navn}</option>
-                </c:forEach>
-            </select>
-            <br><br>
-        </form>
+
+             <form action="ServletTilføjTilKurv" method="get">
+
+                 <select name="bottom">
+                     <option value="vælg bund">Vælg bund</option>
+                     <c:forEach var="item" items="${sessionScope.bottomliste}">
+                         <option value="${item.navn}">${item.navn}</option>
+                     </c:forEach>
+                 </select>
+
+                 <select name="top" id="top">
+                     <option value="Vælg top">vælg top</option>
+                     <c:forEach var="item" items="${sessionScope.topliste}">
+                         <option value="${item.navn}">${item.navn}</option>
+                     </c:forEach>
+                 </select>
+
+                 <select name="antal">
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                 </select>
+
+                 <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
+             </form>
 
 
-        <form name="antal" id="antal">
-            <select name="antal">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            <br><br>
-        </form>
-
-
-        <form action="ServletTilføjTilKurv" method="post">
-            <input type="hidden" name="top" value="${param.top}">
-            <input type="hidden" name="bund" value="${param.bund}">
-            <input type="hidden" name="antal" value="${param.antal}">
-            <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
-        </form>
 
         <c:if test="${sessionScope.user != null}">
             <form action="ServletTilføjTilKurv">
