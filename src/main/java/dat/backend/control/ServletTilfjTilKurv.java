@@ -74,8 +74,14 @@ public class ServletTilfjTilKurv extends HttpServlet {
 
 
 
-        ProduktFacade.createProduct(topCake1.getNavn(), bottomCake1.getNavn(), bottomCake1.getPris() + topCake1.getPris(), ordreId, antal);
+        int productId = ProduktFacade.createProduct(topCake1.getNavn(), bottomCake1.getNavn(), bottomCake1.getPris() + topCake1.getPris(), ordreId, antal);
 
+        ArrayList<Product>kurvIndhold = new ArrayList<>();
+
+        Product product = ProduktFacade.findProduct(productId); //Finder produkt vi lige har lavet
+        kurvIndhold.add(product); //Adder produkt til vores kurv
+
+        session.setAttribute("kurvindhold",kurvIndhold);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

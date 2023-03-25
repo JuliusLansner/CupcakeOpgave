@@ -57,7 +57,7 @@ static int createOrdre(ConnectionPool connectionPool,String bruger) throws Datab
                         id = generatedKeys.getInt(1);
                         generatedKeys.close();
                     }
-            System.out.println("this is the id" + id);
+
                     if(id==0){
                         System.out.println("hell no");
                     }
