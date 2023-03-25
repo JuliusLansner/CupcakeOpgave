@@ -18,7 +18,7 @@ public class OrdreFacade {
         return OrdreMapper.ordreliste(connectionPool);
     }
 
-    public static void createordre(String bruger){
+    public static int createordre(String bruger) throws DatabaseException {
         ConnectionPool connectionPool = new ConnectionPool();
         try {
             connectionPool.getConnection();
@@ -26,11 +26,9 @@ public class OrdreFacade {
             e.printStackTrace();
         }
 
-        try {
-            OrdreMapper.createOrdre(connectionPool,bruger);
-        } catch (DatabaseException e) {
-            e.printStackTrace();
-        }
+
+           return OrdreMapper.createOrdre(connectionPool,bruger);
+
     }
 
 

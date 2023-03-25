@@ -25,6 +25,7 @@ public class Product {
         this.amount = amount;
     }
 
+
     public int getProductId() {
         return productId;
     }

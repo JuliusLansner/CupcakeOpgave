@@ -27,4 +27,13 @@ void setup() throws SQLException {
 
         System.out.println(ordreliste.get(0).getBrugernavn());
     }
+
+    @Test
+    void createorder() throws DatabaseException {
+
+        int id = OrdreMapper.createOrdre(connectionPool,"Malde");
+        System.out.println("orderid is:"+id);
+    }
+
+
 }

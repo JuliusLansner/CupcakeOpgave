@@ -59,17 +59,7 @@
         </form>
 
 
-        <img src="image.png" id="dropdown-trigger">
-        <div id="dropdown-list">
-            <select>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-            </select>
-        </div>
-
-
-        <form action="/ServletTilføjTilKurv" method="post">
+        <form action="ServletTilføjTilKurv" method="get">
             <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
         </form>
 
