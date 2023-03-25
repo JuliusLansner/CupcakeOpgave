@@ -4,6 +4,8 @@ import dat.backend.model.entities.Product;
 import dat.backend.model.exceptions.DatabaseException;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProduktFacadeTest {
@@ -17,7 +19,7 @@ class ProduktFacadeTest {
 
     @Test
     void findProduct() {
-        Product product = ProduktFacade.findProduct(3);
-        System.out.println(product.getOrderId());
+        ArrayList<Product>products = ProduktFacade.findProduct(50);
+        System.out.println(products);
     }
 }

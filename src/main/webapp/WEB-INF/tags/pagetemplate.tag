@@ -60,9 +60,12 @@
                             <img src="${pageContext.request.contextPath}/images/bag.png" width="40" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="https://lagkagehuset.dk/">kage</a>
+                            <c:forEach var="item" items="${sessionScope.kurvindhold}">
+                                <a class="dropdown-item" href="#">${item}</a>
+                            </c:forEach>
                         </div>
                     </div>
+
 
 
                     <!-- Required Bootstrap CSS -->

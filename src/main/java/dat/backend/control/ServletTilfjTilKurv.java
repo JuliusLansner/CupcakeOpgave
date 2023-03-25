@@ -78,8 +78,9 @@ public class ServletTilfjTilKurv extends HttpServlet {
 
         ArrayList<Product>kurvIndhold = new ArrayList<>();
 
-        Product product = ProduktFacade.findProduct(productId); //Finder produkt vi lige har lavet
-        kurvIndhold.add(product); //Adder produkt til vores kurv
+        ArrayList<Product>products = ProduktFacade.findProduct(ordreId); //Finder produkt vi lige har lavet
+
+        kurvIndhold = products; //Adder produkter til vores kurv
 
         session.setAttribute("kurvindhold",kurvIndhold);
         request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -4,6 +4,7 @@ import dat.backend.model.entities.Product;
 import dat.backend.model.exceptions.DatabaseException;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ProduktFacade {
 
@@ -19,9 +20,10 @@ public class ProduktFacade {
         return id;
     }
 
-    public static Product findProduct(int productId){
+    public static ArrayList<Product> findProduct(int orderId){
         ConnectionPool connectionPool = new ConnectionPool();
-        Product product = null;
+        ArrayList<Product> products = new ArrayList<>();
+
         try {
             connectionPool.getConnection();
         } catch (SQLException e) {
@@ -29,12 +31,12 @@ public class ProduktFacade {
         }
 
         try {
-            product = ProductMapper.findProduct(connectionPool,productId);
+            products = ProductMapper.findProduct(connectionPool,orderId);
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
 
-     return product;
+     return products;
     }
 
 

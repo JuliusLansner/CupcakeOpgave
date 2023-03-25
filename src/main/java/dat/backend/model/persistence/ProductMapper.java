@@ -44,9 +44,11 @@ public class ProductMapper {
     }
 
 
-    static Product findProduct(ConnectionPool connectionPool,int productId) throws DatabaseException {
-        String sql ="SELECT * FROM cupcake.produkt WHERE produktid = "+productId;
+    static ArrayList<Product> findProduct(ConnectionPool connectionPool,int orderId) throws DatabaseException {
+        String sql ="SELECT * FROM cupcake.produkt WHERE ordreid = "+orderId;
         Product product = null;
+
+        ArrayList<Product> products = new ArrayList<>();
 
         try(Connection connection = connectionPool.getConnection()){
 
@@ -62,6 +64,7 @@ public class ProductMapper {
                     int amount = rs.getInt(6);
 
                     product = new Product(produktid,top,bottom,price,orderid,amount);
+                    products.add(product);
                 }
             }catch (SQLException ex){
                 throw new DatabaseException(ex, "Something with the sql or the java syntax is wrong");
@@ -70,7 +73,7 @@ public class ProductMapper {
         }catch(SQLException e){
             throw new DatabaseException(e, "Error logging in. Something went wrong with the database");
         }
-        return product;
+        return products;
     }
 
 
