@@ -7,8 +7,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
-'
-
 
 <t:pagetemplate>
     <jsp:attribute name="header">
@@ -60,16 +58,20 @@
 
 
         <form action="ServletTilføjTilKurv" method="get">
-            <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
+
         </form>
 
         <c:if test="${sessionScope.user != null}">
-            <button type="button" class="btn btn-primary">Læg i kurv</button>
+            <form action="ServletTilføjTilKurv" method="get">
+                <button type="button" class="btn btn-primary">Læg i kurv</button>
+            </form>
         </c:if>
 
         <c:if test="${sessionScope.user == null}">
             <p>Login for at tilføje til kurv!</p>
         </c:if>
+
+        <img class="cupcake-bottom-picture" src="${pageContext.request.contextPath}/images/Cupcake-Transparent-Background-2.png" alt=""/>
 
 
     </jsp:body>

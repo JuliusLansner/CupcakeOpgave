@@ -48,7 +48,8 @@ public class ServletCreateUser extends HttpServlet {
         try
         {
             UserFacade.createUser(nyBrugernavn, nyPassword, nyRole,connectionPool);
-            request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
+
+            response.sendRedirect("index");
 
 
         }
