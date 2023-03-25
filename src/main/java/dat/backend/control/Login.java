@@ -45,6 +45,10 @@ public class Login extends HttpServlet
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
 
+            //Så der kan ses der er logged in.
+            boolean ifloggedin = (boolean) session.getAttribute("ifloggedin");
+            ifloggedin = true;
+            session.setAttribute("ifloggedin",ifloggedin);
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
 
             /*if (user.getRole().equals("admin")){
