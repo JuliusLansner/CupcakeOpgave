@@ -3,6 +3,7 @@ package dat.backend.control;
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
+import dat.backend.model.persistence.OrdreFacade;
 import dat.backend.model.persistence.UserFacade;
 import dat.backend.model.persistence.ConnectionPool;
 
@@ -44,6 +45,9 @@ public class Login extends HttpServlet
             User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
+
+            int ordreId = OrdreFacade.createordre(user.getUsername()); //Laver en ordre ved log in og gemmer username i variablen til opretelse af produkter.
+            session.setAttribute("orderId",ordreId);
 
             //Så der kan ses der er logged in.
             boolean ifloggedin = true;

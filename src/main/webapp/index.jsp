@@ -33,7 +33,7 @@
 
              <form action="ServletTilføjTilKurv" method="get">
 
-                 <select name="bottom">
+                 <select name="bottom" id="bottom">
                      <option value="vælg bund">Vælg bund</option>
                      <c:forEach var="item" items="${sessionScope.bottomliste}">
                          <option value="${item.navn}">${item.navn}</option>
