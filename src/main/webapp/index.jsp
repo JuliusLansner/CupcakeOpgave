@@ -28,8 +28,8 @@
         </div>
 
 
-        <form name="topping" id="topping">
-            <select name="top">
+        <form name="bottom" id="bottom">
+            <select name="bottom">
                 <c:forEach var="item" items="${sessionScope.bottomliste}">
                     <option value="${item.navn}">${item.navn}</option>
                 </c:forEach>
@@ -38,10 +38,11 @@
         </form>
 
 
-        <form name="bottom" id="bottom">
-            <select name="bund">
+        <form action="ServletSetTop" name="top" id="top" method="get">
+            <select>
+                <option value="Vælg top">vælg top</option>
                 <c:forEach var="item" items="${sessionScope.topliste}">
-                    <option value="${item}">${item}</option>
+                    <option value="${item.navn}">${item.navn}</option>
                 </c:forEach>
             </select>
             <br><br>
@@ -59,12 +60,17 @@
         </form>
 
 
-        <form action="ServletTilføjTilKurv" method="get">
+        <form action="ServletTilføjTilKurv" method="post">
+            <input type="hidden" name="top" value="${param.top}">
+            <input type="hidden" name="bund" value="${param.bund}">
+            <input type="hidden" name="antal" value="${param.antal}">
             <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
         </form>
 
         <c:if test="${sessionScope.user != null}">
-            <button type="button" class="btn btn-primary">Læg i kurv</button>
+            <form action="ServletTilføjTilKurv">
+                <button type="button" class="btn btn-primary">Læg i kurv</button>
+            </form>
         </c:if>
 
         <c:if test="${sessionScope.user == null}">
