@@ -106,3 +106,7 @@ h2 {
 .kurv{
     background-color: #EEE5D1;
 }
+
+.navbar-nav{
+    transform: translateY(-15px);
+}
