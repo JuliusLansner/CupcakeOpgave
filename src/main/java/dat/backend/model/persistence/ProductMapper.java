@@ -76,6 +76,31 @@ public class ProductMapper {
         return products;
     }
 
+    static void deleteAllProductsWithOrderId(ConnectionPool connectionPool,int orderId){
+        String sql = "DELETE FROM produkt WHERE ordreid = " +orderId;
+
+        try(Connection connection = connectionPool.getConnection();) {
+            try(PreparedStatement pre = connection.prepareStatement(sql)){
+                pre.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    static void deleteProductWithProductId(ConnectionPool connectionPool,int productId){
+        String sql = "DELETE FROM produkt WHERE produktid = " +productId;
+
+        try(Connection connection = connectionPool.getConnection();) {
+            try(PreparedStatement pre = connection.prepareStatement(sql)){
+                pre.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 
 }

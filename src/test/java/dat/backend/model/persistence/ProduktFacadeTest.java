@@ -22,4 +22,14 @@ class ProduktFacadeTest {
         ArrayList<Product>products = ProduktFacade.findProduct(50);
         System.out.println(products);
     }
+
+    @Test
+    void deleteAllProductsWithOrderId() {
+        ProduktFacade.deleteAllProductsWithOrderId(50);
+    }
+
+    @Test
+    void deleteProductWithProductId() {
+        ProduktFacade.deleteProductWithProductId(3);
+    }
 }

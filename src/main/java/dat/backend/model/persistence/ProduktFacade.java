@@ -39,6 +39,30 @@ public class ProduktFacade {
      return products;
     }
 
+    public static void deleteAllProductsWithOrderId(int orderId){
+        ConnectionPool connectionPool = new ConnectionPool();
+        try {
+            connectionPool.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        ProductMapper.deleteAllProductsWithOrderId(connectionPool,orderId);
+    }
+
+    public static void deleteProductWithProductId(int productId){
+        ConnectionPool connectionPool = new ConnectionPool();
+        try {
+            connectionPool.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        ProductMapper.deleteProductWithProductId(connectionPool,productId);
+    }
+
+
+
 
 
 }
