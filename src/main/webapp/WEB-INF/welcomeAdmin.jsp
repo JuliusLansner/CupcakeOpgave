@@ -36,14 +36,14 @@
 
         </div>
         <h3>Her kan du indsætte et beløb</h3>
-        <form method="post" action="ServletLogincondition" >
-            <label for="beløb">beløb:</label>
+        <form class="loginbuttons" method="post" action="ServletLogincondition" >
+            <label for="beløb">Beløb:</label>
             <input type="number" id="beløb" name="belob"/>
 
-            <label for="brugernavn">brugernavn: </label>
+            <label for="brugernavn">Brugernavn: </label>
             <input type="text" id="brugernavn" name="brugernavn"/>
 
-            <button type="submit">indsæt beløb</button>
+            <button class="loginknap" type="submit">Indsæt beløb</button>
         </form>
 
     </jsp:body>

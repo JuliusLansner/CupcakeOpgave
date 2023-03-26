@@ -20,13 +20,13 @@
             <input type="text" id="username" name="username"/>
             <label for="password">Password: </label>
             <input type="password" id="password" name="password"/>
-            <input type="submit"  value="Log in"/>
+            <input class="loginknap" type="submit"  value="Log in"/>
 
         </form>
         <form action="index.jsp">
 
 
-            <input type="submit" value="Back">
+            <input class="loginknap" type="submit" value="Back">
         </form>
         </div>
     </jsp:body>

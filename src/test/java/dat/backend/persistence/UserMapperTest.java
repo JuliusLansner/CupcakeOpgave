@@ -110,4 +110,14 @@ class UserMapperTest
         assertEquals(expectedUser, logInUser);
 
     }
+
+    @Test
+    void indsætBeløb() throws DatabaseException, SQLException {
+
+        User user = new User("testMikkel","123","user");
+
+        String testBruger = "testMikkel";
+
+
+    }
 }

@@ -58,7 +58,7 @@ public class UserMapper {
 
     public static void indsætBeløb(int beløb, String brugernavn, ConnectionPool connectionPool) throws DatabaseException {
 
-        Logger.getLogger("web").log(Level.INFO, "");
+        // sql statement that takes two paramenters and stores in a String
         String penge = "UPDATE bruger SET saldo = saldo + ? WHERE brugernavn = ?";
 
             try (Connection connection = connectionPool.getConnection();
@@ -72,7 +72,4 @@ public class UserMapper {
                 throw new DatabaseException(ex, "Could not update account balance for: " + brugernavn);
             }
     }
-
-
-
 }
