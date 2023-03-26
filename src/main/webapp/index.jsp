@@ -52,16 +52,16 @@
                      <option value="4">4</option>
                  </select>
 
-                 <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
+                 <c:if test="${sessionScope.user != null}">
+                     <form action="ServletTilføjTilKurv">
+                         <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
+                     </form>
+                 </c:if>
              </form>
 
 
 
-        <c:if test="${sessionScope.user != null}">
-            <form action="ServletTilføjTilKurv">
-                <button type="button" class="btn btn-primary">Læg i kurv</button>
-            </form>
-        </c:if>
+
 
         <c:if test="${sessionScope.user == null}">
             <p>Login for at tilføje til kurv!</p>

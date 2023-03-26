@@ -45,7 +45,7 @@
 
                     <div class="dropdown">
                         <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/images/profil.png" width="40" alt="Kurv">
+                            <img src="${pageContext.request.contextPath}/images/profil.png" width="30" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">log ind</a>
@@ -57,7 +57,7 @@
                     <div class="dropdown">
                         <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/images/bag.png" width="40" alt="Kurv">
+                            <img src="${pageContext.request.contextPath}/images/bag.png" width="30" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <c:forEach var="item" items="${sessionScope.kurvindhold}">
