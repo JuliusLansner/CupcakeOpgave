@@ -73,5 +73,17 @@ public class Product {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", top='" + top + '\'' +
+                ", bottom='" + bottom + '\'' +
+                ", price=" + price +
+                ", orderId=" + orderId +
+                ", amount=" + amount +
+                '}';
+    }
 }
 

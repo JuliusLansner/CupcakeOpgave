@@ -2,6 +2,7 @@ package dat.backend.control;
 
 import dat.backend.model.entities.BottomCake;
 import dat.backend.model.entities.Ordre;
+import dat.backend.model.entities.Product;
 import dat.backend.model.entities.TopCake;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.BottomCakeFacade;
@@ -18,7 +19,8 @@ public class Index extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        ArrayList<Ordre> ordrelist = null;
+
+        ArrayList<Product> kurvIndhold = new ArrayList<>(); //De ting som kurven skal indholde skal være her.
         ArrayList<BottomCake> bottomCakes = new ArrayList<>();
         boolean ifloggedin = false;
 
@@ -35,7 +37,7 @@ public class Index extends HttpServlet {
             e.printStackTrace();
         }
 
-        session.setAttribute("ordrelist",ordrelist);
+        session.setAttribute("kurvindhold",kurvIndhold);
         session.setAttribute("ifloggedin",ifloggedin);
         session.setAttribute("topliste",topcakes);
         session.setAttribute("bottomliste",bottomCakes);
