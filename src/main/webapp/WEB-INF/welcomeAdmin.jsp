@@ -19,31 +19,14 @@
             <div class="row">
                 <!-- sidens kolonner. 6 angiver at kolonnen skal fylde 6 ud af 12 felter -->
                 <div class="col-6">
-                    <h2>Kunder</h2>
-                    <div class="dropdown">
-                        <form action="/action_page.php" name="topping" id="kunder">
-                            <label for="kunder"></label>
-                            <select name="Kunder">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option>
-                            </select>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-6">
                     <h2>Ordrer</h2>
                     <div class="dropdown">
-                        <form action="/action_page.php" name="topping" id="ordrer">
-                            <label for="ordrer"></label>
-                            <select name="Ordrer">
-                                <option value="volvo">Volvo</option>
-                                <option value="saab">Saab</option>
-                                <option value="opel">Opel</option>
-                                <option value="audi">Audi</option>
-                            </select>
-                        </form>
+                        <select name="ordre" id="ordre">
+                            <option value="Vælg top">Vælg ordre</option>
+                            <c:forEach var="item" items="${sessionScope.ordreindhold}">
+                                <option value="${item.brugernavn}">Brugernavn: ${item.brugernavn}, ordreID: ${item.ordreId}, Dato: ${item.dato} </option>
+                            </c:forEach>
+                        </select>
                     </div>
                 </div>
             </div>

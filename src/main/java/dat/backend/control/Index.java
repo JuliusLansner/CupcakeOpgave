@@ -6,12 +6,15 @@ import dat.backend.model.entities.Product;
 import dat.backend.model.entities.TopCake;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.BottomCakeFacade;
+import dat.backend.model.persistence.OrdreFacade;
+import dat.backend.model.persistence.ProduktFacade;
 import dat.backend.model.persistence.TopCakeFacade;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.sql.Array;
 import java.util.ArrayList;
 
 @WebServlet(name = "Index", value = "/index")
@@ -36,7 +39,20 @@ public class Index extends HttpServlet {
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
+        ArrayList<Ordre> ordrelist = new ArrayList<>();
+        try{
+            ordrelist = OrdreFacade.getOrdrelist();
+        } catch (DatabaseException e){
+            e.printStackTrace();
+        }
+       // ArrayList<Product> findProduct = new ArrayList<>();
+       // try{
+            //findProduct = ProduktFacade.findProduct();
+        //} catch(DatabaseException e){
 
+       // }
+
+        session.setAttribute("ordreindhold",ordrelist);
         session.setAttribute("kurvindhold",kurvIndhold);
         session.setAttribute("ifloggedin",ifloggedin);
         session.setAttribute("topliste",topcakes);

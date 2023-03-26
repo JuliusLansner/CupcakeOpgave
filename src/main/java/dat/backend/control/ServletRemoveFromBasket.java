@@ -15,18 +15,15 @@ public class ServletRemoveFromBasket extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-
         String order = request.getParameter("order");
-        int productId = Integer.parseInt(order);
-
         ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("kurvindhold");
 
         Iterator<Product> iterator = products.iterator();
         while (iterator.hasNext()) {
             Product product = iterator.next();
-            if (product.getProductId() == productId) {
+            if (product.toString().equals(order)) {
                 iterator.remove();
-                ProduktFacade.deleteProductWithProductId(productId);
+                break; // Exit the loop after removing the item
             }
         }
 

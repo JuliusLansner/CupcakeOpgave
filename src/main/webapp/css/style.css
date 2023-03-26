@@ -29,7 +29,7 @@ th, td {
     align-items: center;
     justify-content: space-between;
     padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0 !important;
     margin-top: 10px;
 }
 
@@ -121,6 +121,7 @@ h2 {
 
 #dropdownMenuButton, #dropdownMenuButton1 {
     border: 0 !important;
+    margin-top: 20px;
 }
 
 #dropdownMenuButton1 {

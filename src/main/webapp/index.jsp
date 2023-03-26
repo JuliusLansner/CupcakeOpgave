@@ -7,6 +7,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
+'
+
 
 <t:pagetemplate>
     <jsp:attribute name="header">
@@ -30,14 +32,14 @@
              <form action="ServletTilføjTilKurv" method="get">
 
                  <select name="bottom" id="bottom">
-                     <option value="vælg bund">Vælg bund</option>
+                     <option value="Vælg bund">Vælg bund</option>
                      <c:forEach var="item" items="${sessionScope.bottomliste}">
                          <option value="${item.navn}">${item.navn}</option>
                      </c:forEach>
                  </select>
 
                  <select name="top" id="top">
-                     <option value="Vælg top">vælg top</option>
+                     <option value="Vælg top">Vælg top</option>
                      <c:forEach var="item" items="${sessionScope.topliste}">
                          <option value="${item.navn}">${item.navn}</option>
                      </c:forEach>
@@ -50,40 +52,22 @@
                      <option value="4">4</option>
                  </select>
 
-                 <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
+                 <c:if test="${sessionScope.user != null}">
+                     <form action="ServletTilføjTilKurv">
+                         <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
+                     </form>
+                 </c:if>
              </form>
 
 
 
 
-        <c:if test="${sessionScope.user != null}">
-            <form action="ServletTilføjTilKurv" method="get">
-                <button type="button" class="btn btn-primary">Læg i kurv</button>
-            </form>
-        </c:if>
 
         <c:if test="${sessionScope.user == null}">
             <p>Login for at tilføje til kurv!</p>
         </c:if>
 
-        <form name="antal" id="antal">
-            <select name="antal">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            <br><br>
-        </form>
-
-
-        <form action="ServletTilføjTilKurv" method="get">
-
-        </form>
-
-
         <img class="cupcake-bottom-picture" src="${pageContext.request.contextPath}/images/Cupcake-Transparent-Background-2.png" alt=""/>
-
     </jsp:body>
 
 </t:pagetemplate>
