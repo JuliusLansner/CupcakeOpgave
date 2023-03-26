@@ -51,6 +51,9 @@ public class Login extends HttpServlet
             boolean ifloggedin = true;
             session.setAttribute("ifloggedin",ifloggedin);
 
+            int userSaldo =UserFacade.watchSaldo(user.getUsername());
+            session.setAttribute("userSaldo",userSaldo);
+
             request.getRequestDispatcher("WEB-INF/welcome.jsp").forward(request, response);
 
             /*if (user.getRole().equals("admin")){
