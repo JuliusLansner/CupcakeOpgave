@@ -67,7 +67,7 @@
             <p>Login for at tilføje til kurv!</p>
         </c:if>
 
-
+        <img class="cupcake-bottom-picture" src="${pageContext.request.contextPath}/images/Cupcake-Transparent-Background-2.png" alt=""/>
     </jsp:body>
 
 </t:pagetemplate>
