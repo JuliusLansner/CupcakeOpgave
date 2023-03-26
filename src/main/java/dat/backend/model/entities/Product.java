@@ -25,6 +25,15 @@ public class Product {
         this.amount = amount;
     }
 
+    public Product(String top, String bottom, int price, int amount) {
+        this.top = top;
+        this.bottom = bottom;
+        this.price = price;
+        this.amount = amount;
+    }
+
+
+
 
     public int getProductId() {
         return productId;

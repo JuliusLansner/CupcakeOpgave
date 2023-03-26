@@ -63,12 +63,15 @@
                             <c:forEach var="item" items="${sessionScope.kurvindhold}">
                                 <form method="get" action="ServletRemoveFromBasket">
                                     <!-- Det som bliver sendt til servlet -->
-                                    <input type="hidden" name="order" value="${item.productId}"  />
+                                    <input type="hidden" name="order" value="${item}"  />
                                     <!-- Det som bliver vist på knappen -->
                                     <a class="dropdown-item" href="#" onclick="this.parentNode.submit(); return false;"> Bund: ${item.bottom} Top: ${item.top} Antal: ${item.amount}</a>
-                                    <button type="submit">Remove</button>
+                                    <button type="submit">Fjern</button>
                                 </form>
                             </c:forEach>
+                            <form action="ServletBuy" method="get">
+                                <button type="submit">Køb</button>
+                            </form>
                         </div>
                     </div>
 

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @WebServlet(name = "ServletTilføjTilKurv", value = "/ServletTilføjTilKurv")
-public class ServletTilfjTilKurv extends HttpServlet {
+public class ServletAddToBasket extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(); //Henter session
@@ -29,9 +29,12 @@ public class ServletTilfjTilKurv extends HttpServlet {
         String topCake = request.getParameter("top");
         String bottomCake = request.getParameter("bottom");
         String antal = request.getParameter("antal");
+        int amount = Integer.parseInt(antal);
         User user = (User) session.getAttribute("user");
-        int ordreId = (int) session.getAttribute("orderId");
 
+        if(topCake.equals("Vælg top")||bottomCake.equals("Vælg bund")){
+            request.getRequestDispatcher("index.jsp").forward(request,response);
+        }
 
         // Henter lister ned med objekter
         ArrayList<TopCake> topcakeList = new ArrayList<>();
@@ -72,17 +75,18 @@ public class ServletTilfjTilKurv extends HttpServlet {
         }
 
 
+        Product newProduct = new Product(topCake1.getNavn(), bottomCake1.getNavn(), bottomCake1.getPris() + topCake1.getPris(),amount);
 
+        ArrayList<Product>kurvIndholdNyt = new ArrayList<>();
+        ArrayList<Product>kurvindholdFør = (ArrayList<Product>) session.getAttribute("kurvindhold");
 
-        int productId = ProduktFacade.createProduct(topCake1.getNavn(), bottomCake1.getNavn(), bottomCake1.getPris() + topCake1.getPris(), ordreId, antal);
+        for(Product product:kurvindholdFør){ // Adder alle produkter fra tidligere arrayliste til den nye
+            kurvIndholdNyt.add(product);
+        }
 
-        ArrayList<Product>kurvIndhold = new ArrayList<>();
+        kurvIndholdNyt.add(newProduct);
 
-        ArrayList<Product>products = ProduktFacade.findProduct(ordreId); //Finder produkt vi lige har lavet
-
-        kurvIndhold = products; //Adder produkter til vores kurv
-
-        session.setAttribute("kurvindhold",kurvIndhold);
+        session.setAttribute("kurvindhold",kurvIndholdNyt);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
