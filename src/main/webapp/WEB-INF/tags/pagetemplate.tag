@@ -69,7 +69,7 @@
                                     <button type="submit">Fjern</button>
                                 </form>
                             </c:forEach>
-                            <form action="ServletBuy" method="get">
+                            <form action="ServletToBuypage" method="get">
                                 <button type="submit">Køb</button>
                             </form>
                         </div>

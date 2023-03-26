@@ -72,4 +72,26 @@ public class UserMapper {
                 throw new DatabaseException(ex, "Could not update account balance for: " + brugernavn);
             }
     }
+
+    public static int watchSaldo(ConnectionPool connectionPool, String username) throws DatabaseException {
+
+        String sql = "SELECT saldo FROM bruger WHERE brugernavn = ?";
+        int saldo = 0;
+
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1,username);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                saldo = resultSet.getInt("saldo");
+            }
+
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Could not retrieve account balance for: " + username);
+        }
+        return saldo;
+    }
+
 }
