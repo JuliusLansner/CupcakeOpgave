@@ -29,8 +29,6 @@
 
 
 
-
-
              <form action="ServletTilføjTilKurv" method="get">
 
                  <select name="bottom" id="bottom">

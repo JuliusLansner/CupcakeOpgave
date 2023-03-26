@@ -61,7 +61,13 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <c:forEach var="item" items="${sessionScope.kurvindhold}">
-                                <a class="dropdown-item" href="#">${item}</a>
+                                <form method="get" action="ServletRemoveFromBasket">
+                                    <!-- Det som bliver sendt til servlet -->
+                                    <input type="hidden" name="order" value="${item.productId}"  />
+                                    <!-- Det som bliver vist på knappen -->
+                                    <a class="dropdown-item" href="#" onclick="this.parentNode.submit(); return false;"> Bund: ${item.bottom} Top: ${item.top} Antal: ${item.amount}</a>
+                                    <button type="submit">Remove</button>
+                                </form>
                             </c:forEach>
                         </div>
                     </div>
