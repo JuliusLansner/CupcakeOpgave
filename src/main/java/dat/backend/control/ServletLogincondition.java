@@ -30,10 +30,7 @@ public class ServletLogincondition extends HttpServlet {
         this.connectionPool = ApplicationStart.getConnectionPool();
     }
 
-
     @Override
-
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // You shouldn't end up here with a GET-request, thus you get sent back to frontpage
         response.setContentType("text/html");
@@ -53,12 +50,7 @@ public class ServletLogincondition extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        // skal det være number/html eller text/html?
-        response.setContentType("number/html");
-
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-
         String brugernavn = request.getParameter("brugernavn");
         int beløb = 0;
 
@@ -67,9 +59,7 @@ public class ServletLogincondition extends HttpServlet {
         } catch (NumberFormatException numberFormatException) {
             System.out.println("int beløb is null");
         }
-
         session.setAttribute("beløb", beløb);
-
         try {
             UserFacade.indsætBeløb(beløb, brugernavn, connectionPool);
         } catch (DatabaseException e) {
@@ -77,6 +67,4 @@ public class ServletLogincondition extends HttpServlet {
         }
         request.getRequestDispatcher("WEB-INF/welcomeAdmin.jsp").forward(request, response);
     }
-
-
 }
