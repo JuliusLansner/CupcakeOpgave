@@ -83,7 +83,7 @@
                                 <form action="ServletBuy" method="get">
                                     <button type="submit" class="basket-button basket-button-buy">Køb</button>
                                 </form>
-                            
+
                             </c:if>
 
 
@@ -105,11 +105,6 @@
 
 
                 </div>
-                </li>
-
-
-                </li>
-
             </div>
         </div>
         </div>
