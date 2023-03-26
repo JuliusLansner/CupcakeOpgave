@@ -36,45 +36,55 @@
 
             <!-- start of "admin" (shows the currently logged in users name) -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-
-                <!-- style gør at man kan bruges css direkte -->
                 <div class="navbar-nav" style="display: flex; align-items: flex-end;">
-                    <a class="logged-in"
-                       href="${pageContext.request.contextPath}/ServletLogincondition">${sessionScope.user.username}
-                    </a>
+                    <a class="nav-item nav-link"
+                       href="${pageContext.request.contextPath}/ServletLogincondition">${sessionScope.user.username}</a>
 
                     <!-- start of profile logo with dropdown menus that allows for login and logout -->
                     <!-- navbar is 86px tall -->
 
-                    <div class="dropdown-buttons">
+                    <div class="dropdown">
                         <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/images/profil.png" width="30" alt="Kurv">
+                            <img src="${pageContext.request.contextPath}/images/profil.png" width="40" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                            <c:if test="${sessionScope.user != null}">
-                            </c:if>
-
-                            <c:if test="${sessionScope.user == null}">
-                                <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">Log ind</a>
-                                <a class ="dropdown-item" href="${pageContext.request.contextPath}/createuser.jsp">Opret bruger</a>
-                            </c:if>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Log ud</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">log ind</a>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">log ud</a>
                         </div>
                     </div>
 
                     <!-- start of shopping basket logo with drop down menus -->
-                    <div class="dropdown-buttons">
+                    <div class="dropdown">
                         <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/images/bag.png" width="30" alt="Kurv">
+                            <img src="${pageContext.request.contextPath}/images/bag.png" width="40" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="https://lagkagehuset.dk/">kage</a>
+                            <c:forEach var="item" items="${sessionScope.kurvindhold}">
+                                <form method="get" action="ServletRemoveFromBasket">
+                                    <!-- Det som bliver sendt til servlet -->
+                                    <input type="hidden" name="order" value="${item}"  />
+                                    <!-- Det som bliver vist på knappen -->
+                                    <a class="dropdown-item" href="#" onclick="this.parentNode.submit(); return false;"> Bund: ${item.bottom} Top: ${item.top} Antal: ${item.amount}</a>
+                                    <button type="submit">Fjern</button>
+                                </form>
+                            </c:forEach>
+                            <form action="ServletBuy" method="get">
+                                <button type="submit">Køb</button>
+                            </form>
                         </div>
                     </div>
 
 
+
+                    <!-- Required Bootstrap CSS -->
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+                    <!-- Required jQuery library -->
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+                    <!-- Required Bootstrap JavaScript -->
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
                 </div>
@@ -111,24 +121,18 @@
         <div class="col">
             P<br/>
             K <br>
+
         </div>
     </div>
+
 </div>
 
-
-<!-- are these lines nessesary? -->
-<%--<!-- Required Bootstrap CSS -->--%>
-<%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">--%>
-<%--<!-- Required jQuery library -->--%>
-<%--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>--%>
-
+</div>
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-<%--<!-- Required Bootstrap JavaScript -->--%>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 </body>
 </html>

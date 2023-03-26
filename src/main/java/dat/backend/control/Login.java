@@ -46,8 +46,6 @@ public class Login extends HttpServlet
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
 
-            int ordreId = OrdreFacade.createordre(user.getUsername()); //Laver en ordre ved log in og gemmer username i variablen til opretelse af produkter.
-            session.setAttribute("orderId",ordreId);
 
             //Så der kan ses der er logged in.
             boolean ifloggedin = true;
