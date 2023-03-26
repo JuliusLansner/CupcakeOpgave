@@ -10,12 +10,12 @@
 table {
     border-collapse: collapse;
     border: 1px solid silver;
-    padding:15px;
+    padding: 15px;
 }
 
 th, td {
     border: 1px solid silver;
-    padding:15px;
+    padding: 15px;
 }
 
 .navbar {
@@ -42,9 +42,11 @@ th, td {
     text-align: center;
     padding-top: 20px;
 }
-.designtext{
-    padding-top:40px;
+
+.designtext {
+    padding-top: 40px;
 }
+
 #topping, #bottom, #antal {
     display: inline-block;
     margin-top: 30px;
@@ -57,9 +59,9 @@ th, td {
     color: #333333 !important;
     /*font-family: Montserrat, sans-serif !important;*/
     border: 0 !important;
-    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
-    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
-    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
     padding: 10px 60px !important;
     margin: 15px;
     border-radius: 5px;
@@ -70,10 +72,10 @@ th, td {
     /*font-family: Montserrat, sans-serif;*/
     background-color: #04143B !important;
     border-radius: 5px;
-    color :white !important;
-    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
-    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
-    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    color: white !important;
+    box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
     padding: 8px 20px !important;
     margin-left: 10px;
     margin-top: -5px !important;
@@ -95,21 +97,22 @@ h2 {
     padding: 20px;
     background-color: #f8efdc;
     border-radius: 10px;
-    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
-    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
-    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
 }
 
 .cupcake-bottom-picture {
-    padding-top:50px;
+    padding-top: 50px;
     padding-bottom: 120px;
 }
 
-.kurv{
+.kurv {
     background-color: #EEE5D1;
 }
+
 /* here you can adjust the icons and username in the navnbar  */
-.navbar-nav{
+.navbar-nav {
     transform: translateY(-15px);
 }
 
@@ -127,30 +130,39 @@ h2 {
 #dropdownMenuButton1 {
     margin-right: 20px;
 }
+
 .logged-in {
     text-decoration: none;
     color: black;
     margin-bottom: -10px;
 }
-.loginbuttons{
+
+.loginbuttons {
 
     color: #333333 !important;
     /*font-family: Montserrat, sans-serif !important;*/
     border: 0 !important;
-    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
-    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
-    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
     padding: 10px 60px !important;
     margin: auto;
 
     border-radius: 5px;
     width: 350px;
 }
-.loginknap{
-    width:auto;
-    margin-top:10px;
+
+.loginknap {
+    width: auto;
+    margin-top: 10px;
 }
-.signupknap{
-    width:auto;
-    margin-top:10px;
+
+.signupknap {
+    width: auto;
+    margin-top: 10px;
+}
+
+.backToFrontPage {
+    text-align: center;
+    margin-top: 50px;
 }
