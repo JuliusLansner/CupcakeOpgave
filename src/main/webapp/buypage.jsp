@@ -12,10 +12,10 @@
 </head>
 <body>
 
-<form action="/ServletBuy" method="get">
+<form action="ServletBuy" method="get">
 <details class="kortinfo" style="cursor: pointer">
-    <summary style="list-style-type: none; border: 1px solid black; padding: 10px;">Betal med kort</summary>
-    <div style="border: 1px solid black; padding: 10px;">
+    <summary class="infosum" style="list-style-type: none; border: 1px solid black; padding: 10px;">Betal med kort</summary>
+    <div class="infobox" style="border: 1px solid black; padding: 10px;">
         <input placeholder="Kortnummer" type="text"><br><br>
         <input placeholder="Sikkerhedskode" type="text"><br><br>
         <input type="date"> <br> <br>
@@ -27,13 +27,16 @@
 
 <form action="" method="get">
     <details class="walletinfo" style="cursor: pointer">
-        <summary style="list-style-type: none; border: 1px solid black; padding: 10px;">Betal med din wallet</summary>
-        <div style="border: 1px solid black; padding: 10px;">
+        <summary class="infosum" style="list-style-type: none; border: 1px solid black; padding: 10px;">Betal med din wallet</summary>
+        <div class="infobox" style="border: 1px solid black; padding: 10px;">
             <label class="saldolabel"> Din saldo: ${sessionScope.userSaldo}</label> <br> <br>
             <button type="submit">Køb</button>
         </div>
     </details>
 </form>
 
+<div class="baggrund">
+
+</div>
 </body>
 </html>
