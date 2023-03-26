@@ -7,7 +7,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
-'
 
 
 <t:pagetemplate>
@@ -45,7 +44,7 @@
                      </c:forEach>
                  </select>
 
-                 <select name="antal">
+                 <select name="antal" id="antal">
                      <option value="1">1</option>
                      <option value="2">2</option>
                      <option value="3">3</option>
@@ -54,7 +53,7 @@
 
                  <c:if test="${sessionScope.user != null}">
                      <form action="ServletTilføjTilKurv">
-                         <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj"><br>
+                         <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj" value="Læg i kurv"><br>
                      </form>
                  </c:if>
              </form>

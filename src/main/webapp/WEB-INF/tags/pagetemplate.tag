@@ -66,11 +66,11 @@
                                     <input type="hidden" name="order" value="${item}"  />
                                     <!-- Det som bliver vist på knappen -->
                                     <a class="dropdown-item" href="#" onclick="this.parentNode.submit(); return false;"> Bund: ${item.bottom} Top: ${item.top} Antal: ${item.amount}</a>
-                                    <button type="submit">Fjern</button>
+                                    <button type="submit" class="basket-button">Fjern</button>
                                 </form>
                             </c:forEach>
                             <form action="ServletBuy" method="get">
-                                <button type="submit">Køb</button>
+                                <button type="submit" class="basket-button basket-button-buy">Køb</button>
                             </form>
                         </div>
                     </div>

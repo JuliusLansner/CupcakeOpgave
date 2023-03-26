@@ -14,15 +14,15 @@
 
     <jsp:body>
 
-        <p>You should be logged in now</p>
+        <p>Du er logget ind!</p>
 
         <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
-            <p>Click here to go back to the front page</p>
+            <p>Du er logget ind med rollen "${sessionScope.user.role}".</p>
+            <p>Klik her for at gå til forsiden</p>
             <form action="index.jsp">
 
 
-                <input type="submit" value="Frontpage">
+                <input type="submit" class="loginknap" value="Gå til forsiden">
             </form>
         </c:if>
 

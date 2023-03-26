@@ -33,6 +33,24 @@ th, td {
     margin-top: 10px;
 }
 
+.basket-button {
+    background-color: #04143B !important;
+    border-radius: 5px;
+    color :white !important;
+    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    padding: 4px 10px !important;
+    margin-left: 20px;
+
+}
+
+.basket-button-buy {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 4px 20px !important;
+}
+
 #body {
     background-color: #EEE5D1;
     border-bottom: 2px solid #000;
@@ -50,9 +68,9 @@ th, td {
     margin-top: 30px;
 }
 
-#topping select,
-#bottom select,
-#antal select {
+#top,
+#bottom,
+#antal {
     background-color: white !important;
     color: #333333 !important;
     /*font-family: Montserrat, sans-serif !important;*/
@@ -65,8 +83,26 @@ th, td {
     border-radius: 5px;
 }
 
+#ordre {
+    background-color: white !important;
+    color: #333333 !important;
+    /*font-family: Montserrat, sans-serif !important;*/
+    border: 0 !important;
+    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    padding: 10px 10px !important;
+    margin: 15px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
 
-.btn {
+.admin-col .col-6 {
+    display: inline-flex;
+}
+
+
+#tilføj {
     /*font-family: Montserrat, sans-serif;*/
     background-color: #04143B !important;
     border-radius: 5px;
@@ -82,6 +118,7 @@ th, td {
 
 h2 {
     font-size: 1.5rem !important;
+    margin-bottom: 30px !important;
 }
 
 .userinfo {
@@ -142,15 +179,38 @@ h2 {
     -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
     padding: 10px 60px !important;
     margin: auto;
-
     border-radius: 5px;
     width: 350px;
+    margin-bottom: 40px;
 }
-.loginknap{
-    width:auto;
-    margin-top:10px;
+.loginknap {
+    background-color: #04143B !important;
+    border-radius: 5px;
+    color :white !important;
+    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    padding: 8px 20px !important;
+    margin-top: 15px !important;
+    margin-bottom: 20px;
 }
-.signupknap{
-    width:auto;
-    margin-top:10px;
+
+.loginbuttons .tilbage {
+    margin-top: 0 !important;
+}
+
+.signupknap {
+    background-color: #04143B !important;
+    border-radius: 5px;
+    color :white !important;
+    box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0,0,0,0.55);
+    padding: 8px 20px !important;
+    margin-top: 15px !important;
+    margin-bottom: 20px;
+}
+
+.signup-tilbage {
+    margin-top: 5px !important;
 }

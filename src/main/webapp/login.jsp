@@ -13,20 +13,20 @@
 
     <jsp:body>
 
-        <h3>You can log in here</h3>
+        <h3>Du kan logge ind her</h3>
         <div class ="loginbuttons">
         <form action="login" method="post">
-            <label for="username">Username: </label>
+            <label for="username">Brugernavn: </label>
             <input type="text" id="username" name="username"/>
-            <label for="password">Password: </label>
+            <label for="password">Adgangskode: </label>
             <input type="password" id="password" name="password"/>
-            <input class="loginknap" type="submit"  value="Log in"/>
+            <input class="loginknap" type="submit"  value="Log ind"/>
 
         </form>
         <form action="index.jsp">
 
 
-            <input class="loginknap" type="submit" value="Back">
+            <input class="loginknap tilbage" type="submit" value="Tilbage til forsiden">
         </form>
         </div>
     </jsp:body>
