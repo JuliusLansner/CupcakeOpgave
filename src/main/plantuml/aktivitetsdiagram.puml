@@ -7,9 +7,7 @@ start
 fork
 :opret bruger;
 repeat
-:indtast brugernavn;
-:indtast kode;
-:indtast rolle;
+:indtast oplysninger;
 repeat while (hvis brugernavn er optaget) is (ja)
 :log ind;
 detach
@@ -29,7 +27,15 @@ detach
 fork again
 |Bruger|
 :kunde;
+end fork
+fork
+:kundeside;
+:se ordrehistorik;
 :tilbage til forside;
+detach
+fork again
+:tilbage til forside;
+end fork
 repeat
 :vælg topping;
 :vælg bund;
