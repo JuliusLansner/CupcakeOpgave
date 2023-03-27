@@ -27,12 +27,11 @@
 
 <form action="ServletToBuypage" method="post">
     <details class="walletinfo" style="cursor: pointer">
-        <summary style="list-style-type: none; border: 1px solid black; padding: 10px;">Betal med din wallet ${sessionScope.user.username}</summary>
+        <summary style="list-style-type: none; border: 1px solid black; padding: 10px;">Betal med din wallet</summary>
         <div style="border: 1px solid black; padding: 10px;">
-            <label class="saldolabel"> Din saldo: ${sessionScope.userSaldo} ${sessionScope.user.username}</label> <br> <br>
+            <label class="saldolabel"> Din saldo: ${sessionScope.userSaldo}</label> <br> <br>
             <button type="submit">Køb</button>
         </div>
-        <%= request.getAttribute("brugernavn") %>
 
     </details>
 </form>

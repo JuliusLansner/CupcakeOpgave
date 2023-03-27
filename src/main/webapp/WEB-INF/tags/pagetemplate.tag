@@ -70,7 +70,6 @@
                                 </form>
                             </c:forEach>
                             <form action="ServletToBuypage" method="get">
-                                ${sessionScope.user.username}
                                 <button type="submit">Køb</button>
                             </form>
                         </div>
