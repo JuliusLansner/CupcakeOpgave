@@ -34,7 +34,7 @@ public class UserMapper {
         return user;
     }
 
-    static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException {
+    public static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
         User user;
         String sql = "insert into bruger (brugernavn, kodeord, rolle) values (?,?,?)";
@@ -72,4 +72,40 @@ public class UserMapper {
                 throw new DatabaseException(ex, "Could not update account balance for: " + brugernavn);
             }
     }
+
+    public static int watchSaldo(ConnectionPool connectionPool, String username) throws DatabaseException {
+
+        String sql = "SELECT saldo FROM bruger WHERE brugernavn = ?";
+        int saldo = 0;
+
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1,username);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                saldo = resultSet.getInt("saldo");
+            }
+
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Could not retrieve account balance for: " + username);
+        }
+        return saldo;
+    }
+
+    public static void updateSaldo(String brugernavn, int nyBrugerSaldo, ConnectionPool connectionPool) throws DatabaseException {
+
+        String update = "UPDATE bruger SET saldo = ? WHERE brugernavn = ?";
+
+        try (Connection connection = connectionPool.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(update);
+            preparedStatement.setInt(1, nyBrugerSaldo);
+            preparedStatement.setString(2,brugernavn);
+            preparedStatement.executeUpdate();
+        } catch (SQLException sqlException){
+            throw new DatabaseException(sqlException, "could not update user saldo" + brugernavn);
+        }
+    }
+
 }
