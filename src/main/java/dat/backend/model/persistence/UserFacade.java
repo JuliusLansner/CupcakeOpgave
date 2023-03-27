@@ -3,6 +3,8 @@ package dat.backend.model.persistence;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class UserFacade
@@ -38,5 +40,21 @@ public class UserFacade
         return saldo;
     }
 
+    public static int updateSaldo(String brugernavn, int nyBrugerSaldo) throws SQLException, DatabaseException {
 
+        int penge = 0;
+
+        ConnectionPool connectionPool = new ConnectionPool();
+        try{
+            connectionPool.getConnection();
+        } catch (SQLException sqlException){
+            throw new DatabaseException(sqlException, "could not update user saldo" + brugernavn);
+        }
+        try {
+            penge = UserMapper.updateSaldo(brugernavn,nyBrugerSaldo,connectionPool);
+        } catch (DatabaseException e){
+            e.printStackTrace();
+        }
+        return penge;
+    }
 }

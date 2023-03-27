@@ -94,4 +94,21 @@ public class UserMapper {
         return saldo;
     }
 
+    public static int updateSaldo(String brugernavn, int nyBrugerSaldo, ConnectionPool connectionPool) throws SQLException, DatabaseException {
+
+        String update = "UPDATE bruger SET saldo = ? WHERE brugernavn = ?";
+
+        try (Connection connection = connectionPool.getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(update);
+            preparedStatement.setInt(1, nyBrugerSaldo);
+            preparedStatement.setString(2,brugernavn);
+            preparedStatement.executeUpdate();
+        } catch (SQLException sqlException){
+            throw new DatabaseException(sqlException, "could not update user saldo" + brugernavn);
+        }
+
+
+        return nyBrugerSaldo;
+    }
+
 }

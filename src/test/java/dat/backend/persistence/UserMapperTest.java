@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -20,7 +21,7 @@ class UserMapperTest
 
     private final static String USER = "root";
     private final static String PASSWORD = "pan42anb";
-    private final static String URL = "jdbc:mysql://localhost:3306/startcode_test?serverTimezone=CET&allowPublicKeyRetrieval=true&useSSL=false";
+    private final static String URL = "jdbc:mysql://localhost:3306/cupcake";
 
     private static ConnectionPool connectionPool;
 
@@ -111,13 +112,19 @@ class UserMapperTest
 
     }
 
-    @Test
-    void indsætBeløb() throws DatabaseException, SQLException {
+//    @Test
+//    void indsætBeløb() throws DatabaseException, SQLException {
+//
+//        User user = UserFacade.createUser("testMikkel","123","user",connectionPool);
+//        String brugernavn = "testMikkel";
+//        int beløb = 100;
+//
+//        UserFacade.indsætBeløb(beløb,brugernavn,connectionPool);
+//        UserFacade.login(brugernavn,"123",connectionPool);
+//
+//        int expectedSaldo = 100;
+//        int actualSaldo = UserFacade.watchSaldo(brugernavn);
+//        assertEquals(expectedSaldo, actualSaldo);
+//    }
 
-        User user = new User("testMikkel","123","user");
-
-        String testBruger = "testMikkel";
-
-
-    }
 }

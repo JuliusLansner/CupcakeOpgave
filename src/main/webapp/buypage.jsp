@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="/ServletBuy" method="get">
+<form action="${pageContext.request.contextPath}/ServletBuy" method="get">
 <details class="kortinfo" style="cursor: pointer">
     <summary style="list-style-type: none; border: 1px solid black; padding: 10px;">Betal med kort</summary>
     <div style="border: 1px solid black; padding: 10px;">
@@ -25,13 +25,15 @@
 </form>
 
 
-<form action="" method="get">
+<form action="ServletToBuypage" method="post">
     <details class="walletinfo" style="cursor: pointer">
         <summary style="list-style-type: none; border: 1px solid black; padding: 10px;">Betal med din wallet</summary>
         <div style="border: 1px solid black; padding: 10px;">
             <label class="saldolabel"> Din saldo: ${sessionScope.userSaldo}</label> <br> <br>
             <button type="submit">Køb</button>
         </div>
+        <%= request.getAttribute("brugernavn") %>
+
     </details>
 </form>
 
