@@ -1,7 +1,10 @@
 package dat.backend.control;
 
+import dat.backend.model.entities.Product;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
+import dat.backend.model.persistence.OrdreFacade;
+import dat.backend.model.persistence.ProduktFacade;
 import dat.backend.model.persistence.UserFacade;
 
 import javax.servlet.*;
@@ -11,6 +14,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet(name = "ServletToBuypage", value = "/ServletToBuypage")
 public class ServletToBuypage extends HttpServlet {
@@ -33,10 +37,22 @@ public class ServletToBuypage extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        // brugernavn = Null ... -.-
-        User brugernavn = (User) session.getAttribute("brugernavn");
-        int belob = Integer.parseInt(request.getParameter("belob"));
+        User brugernavn = (User) session.getAttribute("user");
         int currentSaldo = (Integer) session.getAttribute("userSaldo");
+        ArrayList<Product> test = (ArrayList<Product>) session.getAttribute("kurvindhold");
+        int orderId = 0;
+        try {
+            orderId = OrdreFacade.createordre(brugernavn.getUsername()); //Laver et ordre id til user
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+        }
+
+       int belob = 0;
+        for (Product product: test){
+            belob += product.getPrice();
+            ProduktFacade.createProduct(product.getTop(), product.getBottom(), product.getPrice(),orderId, String.valueOf(product.getAmount()));
+
+        }
 
         if (currentSaldo >= belob) {
             int opdateretSaldo = currentSaldo - belob;
