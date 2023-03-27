@@ -4,6 +4,7 @@ import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.UserFacade;
+import dat.backend.model.persistence.UserMapper;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,9 +20,9 @@ class UserMapperTest
 {
     // TODO: Change mysql login credentials if needed below
 
-    private final static String USER = "root";
-    private final static String PASSWORD = "pan42anb";
-    private final static String URL = "jdbc:mysql://localhost:3306/cupcake";
+    private static String USER = "root";
+    private static String PASSWORD = "pan42anb";
+    private final static String URL = "jdbc:mysql://localhost:3306/startcode_test?serverTimezone=CET&allowPublicKeyRetrieval=true&useSSL=false";
 
     private static ConnectionPool connectionPool;
 
@@ -112,19 +113,38 @@ class UserMapperTest
 
     }
 
-//    @Test
-//    void indsætBeløb() throws DatabaseException, SQLException {
-//
+
+    @Test
+    void indsætBeløb() throws DatabaseException, SQLException {
+
 //        User user = UserFacade.createUser("testMikkel","123","user",connectionPool);
-//        String brugernavn = "testMikkel";
-//        int beløb = 100;
-//
-//        UserFacade.indsætBeløb(beløb,brugernavn,connectionPool);
-//        UserFacade.login(brugernavn,"123",connectionPool);
-//
-//        int expectedSaldo = 100;
-//        int actualSaldo = UserFacade.watchSaldo(brugernavn);
-//        assertEquals(expectedSaldo, actualSaldo);
-//    }
+        String brugernavn = "testMikkel";
+        int beløb = 100;
+
+        UserFacade.indsætBeløb(beløb,brugernavn,connectionPool);
+        UserFacade.login(brugernavn,"123",connectionPool);
+
+        int expectedSaldo = 100;
+        int actualSaldo = UserFacade.watchSaldo(brugernavn);
+        assertEquals(expectedSaldo, actualSaldo);
+    }
+
+
+    @Test
+    void updateSaldo() throws DatabaseException {
+        // needed fields
+        String brugernavn = "brugernavn";
+        int firstSaldo = 100;
+        int secondSaldo = 150;
+
+        // test user
+//        User testUser = UserMapper.createUser(brugernavn, "password", "user", connectionPool);
+        UserMapper.updateSaldo(brugernavn, firstSaldo, connectionPool);
+        UserMapper.updateSaldo(brugernavn, secondSaldo, connectionPool);
+
+        // compare
+        int currentSaldo = UserMapper.watchSaldo(connectionPool, brugernavn);
+        assertEquals(secondSaldo, currentSaldo);
+    }
 
 }

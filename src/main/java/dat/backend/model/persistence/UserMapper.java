@@ -34,7 +34,7 @@ public class UserMapper {
         return user;
     }
 
-    static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException {
+    public static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
         User user;
         String sql = "insert into bruger (brugernavn, kodeord, rolle) values (?,?,?)";
