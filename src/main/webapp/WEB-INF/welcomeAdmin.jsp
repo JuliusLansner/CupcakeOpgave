@@ -18,7 +18,7 @@
             <!-- tværgående rækker hen over siden -->
             <div class="row">
                 <!-- sidens kolonner. 6 angiver at kolonnen skal fylde 6 ud af 12 felter -->
-                <div class="col-6">
+                <div class="col-12">
                     <h2>Ordrer</h2>
                     <div class="dropdown">
                         <select name="ordre" id="ordre">
@@ -35,17 +35,23 @@
 
 
         </div>
-        <h3>Her kan du indsætte et beløb</h3>
-        <form class="loginbuttons" method="post" action="ServletLogincondition" >
-            <label for="beløb">Beløb:</label>
-            <input type="number" id="beløb" name="belob"/>
 
-            <label for="brugernavn">Brugernavn: </label>
-            <input type="text" id="brugernavn" name="brugernavn"/>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Her kan du indsætte et beløb</h2>
+                    <form class="loginbuttons" method="post" action="ServletLogincondition" >
+                        <label for="beløb">Beløb:</label>
+                        <input type="number" id="beløb" name="belob"/>
 
-            <button class="loginknap" type="submit">Indsæt beløb</button>
-        </form>
+                        <label for="brugernavn">Brugernavn: </label>
+                        <input type="text" id="brugernavn" name="brugernavn"/>
 
+                        <button class="loginknap" type="submit">Indsæt beløb</button>
+                    </form>
+                </div>
+        </div>
+        </div>
     </jsp:body>
 
 </t:pagetemplate>

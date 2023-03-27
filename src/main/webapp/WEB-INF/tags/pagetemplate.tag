@@ -45,20 +45,31 @@
 
                     <div class="dropdown">
                         <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/images/profil.png" width="40" alt="Kurv">
+                            <img src="${pageContext.request.contextPath}/images/profil.png" width="30" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">log ind</a>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">log ud</a>
+
+                            <c:if test="${sessionScope.user != null}">
+                            </c:if>
+
+                            <c:if test="${sessionScope.user == null}">
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">Log ind</a>
+                                <a class ="dropdown-item" href="${pageContext.request.contextPath}/createuser.jsp">Opret bruger</a>
+                            </c:if>
+                            <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Log ud</a>
                         </div>
                     </div>
 
                     <!-- start of shopping basket logo with drop down menus -->
+                    <!--testing if a user exists, if so, show basket-->
+                    <c:if test="${sessionScope.user != null}">
+
                     <div class="dropdown">
                         <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="${pageContext.request.contextPath}/images/bag.png" width="40" alt="Kurv">
+                            <img src="${pageContext.request.contextPath}/images/bag.png" width="30" alt="Kurv">
                         </button>
+
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <c:forEach var="item" items="${sessionScope.kurvindhold}">
                                 <form method="get" action="ServletRemoveFromBasket">
@@ -66,12 +77,18 @@
                                     <input type="hidden" name="order" value="${item}"  />
                                     <!-- Det som bliver vist på knappen -->
                                     <a class="dropdown-item" href="#" onclick="this.parentNode.submit(); return false;"> Bund: ${item.bottom} Top: ${item.top} Antal: ${item.amount}</a>
-                                    <button type="submit">Fjern</button>
+                                    <button type="submit" class="basket-button">Fjern</button>
                                 </form>
                             </c:forEach>
-                            <form action="ServletToBuypage" method="get">
-                                <button type="submit">Køb</button>
-                            </form>
+                                <form action="ServletToBuypage" method="get">
+                                    <button type="submit" class="basket-button basket-button-buy">Køb</button>
+                                </form>
+
+                            </c:if>
+
+
+
+
                         </div>
                     </div>
 
@@ -88,11 +105,6 @@
 
 
                 </div>
-                </li>
-
-
-                </li>
-
             </div>
         </div>
         </div>
@@ -109,19 +121,8 @@
     <hr/>
     <div class="row mt-4">
         <div class="col">
-            C<br/>
-            C
-        </div>
-        <div class="col">
             <jsp:invoke fragment="footer"/>
-            <br/>
-            <p>A </p><br>
             Malde, Mikkel, Julius grp 5 hold A 2023 sem 2 datamatiker
-        </div>
-        <div class="col">
-            P<br/>
-            K <br>
-
         </div>
     </div>
 
