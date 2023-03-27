@@ -39,7 +39,6 @@ public class UserFacade
     }
 
     public static void updateSaldo(String brugernavn, int nyBrugerSaldo) throws SQLException, DatabaseException {
-
         ConnectionPool connectionPool = new ConnectionPool();
         try{
             connectionPool.getConnection();
