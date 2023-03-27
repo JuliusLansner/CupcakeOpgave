@@ -215,23 +215,19 @@ h2 {
     margin-top: 5px !important;
 }
 .kortinfo{
-    width: 200px;
+   width: 200px;
     height: 40px;
-
-    position: relative;
-    top: 506px;
-    left: 45%;
-
+    margin: auto;
+    
     background-color: #91a1c7;
 }
 
 .walletinfo{
     width: 200px;
     height: 40px;
+    margin: auto;
 
-    position: relative;
-    top: 450px;
-    left:30%;
+
 
     background-color: #91a1c7;
 }

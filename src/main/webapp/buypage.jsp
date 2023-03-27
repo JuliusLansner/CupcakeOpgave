@@ -7,14 +7,10 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-             buypage
+
     </jsp:attribute>
 
-
-
     <jsp:body>
-
-
 
         <form action="${pageContext.request.contextPath}/ServletBuy" method="get">
 
@@ -42,10 +38,5 @@
 
             </details>
         </form>
-
-
-        <div class="baggrund">
-
-        </div>
     </jsp:body>
 </t:pagetemplate>
