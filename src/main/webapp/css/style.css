@@ -214,3 +214,43 @@ h2 {
 .signup-tilbage {
     margin-top: 5px !important;
 }
+.kortinfo{
+    width: 200px;
+    height: 40px;
+
+    position: relative;
+    top: 506px;
+    left: 45%;
+
+    background-color: #91a1c7;
+}
+
+.walletinfo{
+    width: 200px;
+    height: 40px;
+
+    position: relative;
+    top: 450px;
+    left:30%;
+
+    background-color: #91a1c7;
+}
+
+body{
+    background-color:#EEE5D1;
+
+}
+
+.infosum{
+    text-shadow: black;
+    font-weight: bold;
+
+    color: #f3f3f5;
+}
+
+.infobox{
+    background-color: #f3f3f5;
+}
+
+
+

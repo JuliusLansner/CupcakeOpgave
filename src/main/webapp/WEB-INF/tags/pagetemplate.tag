@@ -80,7 +80,7 @@
                                     <button type="submit" class="basket-button">Fjern</button>
                                 </form>
                             </c:forEach>
-                                <form action="ServletBuy" method="get">
+                                <form action="ServletToBuypage" method="get">
                                     <button type="submit" class="basket-button basket-button-buy">Køb</button>
                                 </form>
 
