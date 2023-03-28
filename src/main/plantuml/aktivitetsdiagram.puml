@@ -19,7 +19,6 @@ fork
 :admin;
 if (adminside)
 :se alle ordre;
-:slet ordre;
 else ()
   :indsæt et beløb;
 endif
