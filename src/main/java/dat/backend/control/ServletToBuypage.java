@@ -40,9 +40,10 @@ public class ServletToBuypage extends HttpServlet {
         User brugernavn = (User) session.getAttribute("user");
         int currentSaldo = (Integer) session.getAttribute("userSaldo");
         ArrayList<Product> test = (ArrayList<Product>) session.getAttribute("kurvindhold");
+
         int orderId = 0;
         try {
-            orderId = OrdreFacade.createordre(brugernavn.getUsername()); //Laver et ordre id til user
+            orderId = OrdreFacade.createordre(brugernavn.getUsername());
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
@@ -51,7 +52,6 @@ public class ServletToBuypage extends HttpServlet {
         for (Product product: test){
             belob += product.getPrice();
             ProduktFacade.createProduct(product.getTop(), product.getBottom(), product.getPrice(),orderId, String.valueOf(product.getAmount()));
-
         }
 
         if (currentSaldo >= belob) {
@@ -60,7 +60,6 @@ public class ServletToBuypage extends HttpServlet {
                 UserFacade.updateSaldo(brugernavn.getUsername(),opdateretSaldo);
             } catch (SQLException | DatabaseException sqlException) {
                 sqlException.printStackTrace();
-                System.out.println("you are trying to pass something that is Null");
             }
         }
         request.getRequestDispatcher("index.jsp").forward(request,response);

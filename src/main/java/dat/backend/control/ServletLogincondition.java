@@ -57,7 +57,7 @@ public class ServletLogincondition extends HttpServlet {
         try {
             beløb = Integer.parseInt(request.getParameter("belob"));
         } catch (NumberFormatException numberFormatException) {
-            System.out.println("int beløb is null");
+            numberFormatException.printStackTrace();
         }
         session.setAttribute("beløb", beløb);
         try {
