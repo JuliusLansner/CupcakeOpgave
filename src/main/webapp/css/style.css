@@ -254,5 +254,8 @@ body {
     background-color: #f3f3f5;
 }
 
+.dropdown-menu{
+    left:-250px !important;
+}
 
 
