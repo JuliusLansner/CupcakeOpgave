@@ -103,6 +103,7 @@ class UserMapperTest {
         String brugernavn = "brugernavn";
         int beløb = 100;
 
+        UserMapper.createUser(brugernavn, "password", "user", connectionPool);
         UserFacade.indsætBeløb(beløb, brugernavn, connectionPool);
 
         int forventetBeløb = 100;
