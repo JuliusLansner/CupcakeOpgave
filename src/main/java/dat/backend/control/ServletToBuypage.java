@@ -22,15 +22,14 @@ public class ServletToBuypage extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        
 
         boolean ifloggedin = (boolean) session.getAttribute("ifloggedin");
 
-        if(ifloggedin==false){
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+        if (ifloggedin == false) {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
-        request.getRequestDispatcher("buypage.jsp").forward(request,response);
+        request.getRequestDispatcher("buypage.jsp").forward(request, response);
     }
 
     @Override
@@ -48,20 +47,20 @@ public class ServletToBuypage extends HttpServlet {
             e.printStackTrace();
         }
 
-       int belob = 0;
-        for (Product product: test){
+        int belob = 0;
+        for (Product product : test) {
             belob += product.getPrice();
-            ProduktFacade.createProduct(product.getTop(), product.getBottom(), product.getPrice(),orderId, String.valueOf(product.getAmount()));
+            ProduktFacade.createProduct(product.getTop(), product.getBottom(), product.getPrice(), orderId, String.valueOf(product.getAmount()));
         }
 
         if (currentSaldo >= belob) {
             int opdateretSaldo = currentSaldo - belob;
             try {
-                UserFacade.updateSaldo(brugernavn.getUsername(),opdateretSaldo);
+                UserFacade.updateSaldo(brugernavn.getUsername(), opdateretSaldo);
             } catch (SQLException | DatabaseException sqlException) {
                 sqlException.printStackTrace();
             }
         }
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }

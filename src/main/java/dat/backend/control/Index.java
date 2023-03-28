@@ -40,23 +40,18 @@ public class Index extends HttpServlet {
             e.printStackTrace();
         }
         ArrayList<Ordre> ordrelist = new ArrayList<>();
-        try{
+        try {
             ordrelist = OrdreFacade.getOrdrelist();
-        } catch (DatabaseException e){
+        } catch (DatabaseException e) {
             e.printStackTrace();
         }
-       // ArrayList<Product> findProduct = new ArrayList<>();
-       // try{
-            //findProduct = ProduktFacade.findProduct();
-        //} catch(DatabaseException e){
 
-       // }
 
-        session.setAttribute("ordreindhold",ordrelist);
-        session.setAttribute("kurvindhold",kurvIndhold);
-        session.setAttribute("ifloggedin",ifloggedin);
-        session.setAttribute("topliste",topcakes);
-        session.setAttribute("bottomliste",bottomCakes);
+        session.setAttribute("ordreindhold", ordrelist);
+        session.setAttribute("kurvindhold", kurvIndhold);
+        session.setAttribute("ifloggedin", ifloggedin);
+        session.setAttribute("topliste", topcakes);
+        session.setAttribute("bottomliste", bottomCakes);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

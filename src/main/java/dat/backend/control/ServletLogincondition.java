@@ -35,11 +35,11 @@ public class ServletLogincondition extends HttpServlet {
         // You shouldn't end up here with a GET-request, thus you get sent back to frontpage
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-        // session.setAttribute("user", null); // invalidating user object in session scope
+
         session = request.getSession();
         // adding user object to session scope
         User user = (User) session.getAttribute("user");
-        //System.out.println(user.getRole());
+
         if (user.getRole().equals("admin")) {
             request.getRequestDispatcher("WEB-INF/welcomeAdmin.jsp").forward(request, response);
         } else if (!user.getRole().equals("admin")) {

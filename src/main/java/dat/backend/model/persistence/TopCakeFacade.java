@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class TopCakeFacade {
 
 
-    public static ArrayList<TopCake>topCakeList() throws DatabaseException {
+    public static ArrayList<TopCake> topCakeList() throws DatabaseException {
         ConnectionPool connectionPool = new ConnectionPool();
         try {
             connectionPool.getConnection();

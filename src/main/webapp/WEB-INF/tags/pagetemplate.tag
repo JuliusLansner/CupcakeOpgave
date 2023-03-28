@@ -14,6 +14,18 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- Required Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Required jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    <!-- Required Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -32,19 +44,15 @@
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-
             <!-- start of "admin" (shows the currently logged in users name) -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav" style="display: flex; align-items: flex-end;">
                     <a class="nav-item nav-link"
                        href="${pageContext.request.contextPath}/ServletLogincondition">${sessionScope.user.username}</a>
-
                     <!-- start of profile logo with dropdown menus that allows for login and logout -->
-                    <!-- navbar is 86px tall -->
-
                     <div class="dropdown">
-                        <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="kurv dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="${pageContext.request.contextPath}/images/profil.png" width="30" alt="Kurv">
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -54,7 +62,8 @@
 
                             <c:if test="${sessionScope.user == null}">
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/login.jsp">Log ind</a>
-                                <a class ="dropdown-item" href="${pageContext.request.contextPath}/createuser.jsp">Opret bruger</a>
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/createuser.jsp">Opret
+                                    bruger</a>
                             </c:if>
                             <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Log ud</a>
                         </div>
@@ -74,35 +83,19 @@
                             <c:forEach var="item" items="${sessionScope.kurvindhold}">
                                 <form method="get" action="ServletRemoveFromBasket">
                                     <!-- Det som bliver sendt til servlet -->
-                                    <input type="hidden" name="order" value="${item}"  />
+                                    <input type="hidden" name="order" value="${item}"/>
                                     <!-- Det som bliver vist på knappen -->
-                                    <a class="dropdown-item" href="#" onclick="this.parentNode.submit(); return false;"> Bund: ${item.bottom} Top: ${item.top} Antal: ${item.amount}</a>
+                                    <a class="dropdown-item" href="#" onclick="this.parentNode.submit(); return false;">
+                                        Bund: ${item.bottom} Top: ${item.top} Antal: ${item.amount}</a>
                                     <button type="submit" class="basket-button">Fjern</button>
                                 </form>
                             </c:forEach>
-                                <form action="ServletToBuypage" method="get">
-                                    <button type="submit" class="basket-button basket-button-buy">Køb</button>
-                                </form>
-
+                            <form action="ServletToBuypage" method="get">
+                                <button type="submit" class="basket-button basket-button-buy">Køb</button>
+                            </form>
                             </c:if>
-
-
-
-
                         </div>
                     </div>
-
-
-
-                    <!-- Required Bootstrap CSS -->
-                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-                    <!-- Required jQuery library -->
-                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-
-                    <!-- Required Bootstrap JavaScript -->
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
 
                 </div>
             </div>
@@ -116,24 +109,9 @@
     <jsp:doBody/>
 </div>
 
-<!-- Footer -->
-<div class="container mt-3">
-    <hr/>
-    <div class="row mt-4">
-        <div class="col">
-            <jsp:invoke fragment="footer"/>
-            Malde, Mikkel, Julius grp 5 hold A 2023 sem 2 datamatiker
-        </div>
-    </div>
 
 </div>
 
-</div>
-
-<!-- Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 
 </body>
 </html>

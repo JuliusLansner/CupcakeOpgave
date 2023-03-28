@@ -10,24 +10,23 @@
     </jsp:attribute>
 
 
-
     <jsp:body>
 
         <h3>Du kan logge ind her</h3>
-        <div class ="loginbuttons">
-        <form action="login" method="post">
-            <label for="username">Brugernavn: </label>
-            <input type="text" id="username" name="username"/>
-            <label for="password">Adgangskode: </label>
-            <input type="password" id="password" name="password"/>
-            <input class="loginknap" type="submit"  value="Log ind"/>
+        <div class="loginbuttons">
+            <form action="login" method="post">
+                <label for="username">Brugernavn: </label>
+                <input type="text" id="username" name="username"/>
+                <label for="password">Adgangskode: </label>
+                <input type="password" id="password" name="password"/>
+                <input class="loginknap" type="submit" value="Log ind"/>
 
-        </form>
-        <form action="index.jsp">
+            </form>
+            <form action="index.jsp">
 
 
-            <input class="loginknap tilbage" type="submit" value="Tilbage til forsiden">
-        </form>
+                <input class="loginknap tilbage" type="submit" value="Tilbage til forsiden">
+            </form>
         </div>
     </jsp:body>
 </t:pagetemplate>

@@ -18,29 +18,30 @@
 
         <div class="container userinfo">
 
-                <div class="account">
-                    <h2>Kontooplysninger</h2>
-                </div>
+            <div class="account">
+                <h2>Kontooplysninger</h2>
+            </div>
 
-                <div class="orders">
-                    <h2>Ordrehistorik</h2>
-                    <div class="dropdown">
-                        <select name="ordre" id="ordre">
-                            <option value="Vælg top">Vælg ordre</option>
-                            <c:forEach var="item" items="${sessionScope.ordreindhold}">
-                                <c:if test="${item.brugernavn eq sessionScope.user.username}">
-                                    <option value="${item.brugernavn}">Brugernavn: ${item.brugernavn}, ordreID: ${item.ordreId}, Dato: ${item.dato} </option>
-                                </c:if>
-                            </c:forEach>
-                        </select>
-                    </div>
+            <div class="orders">
+                <h2>Ordrehistorik</h2>
+                <div class="dropdown">
+                    <select name="ordre" id="ordre">
+                        <option value="Vælg top">Vælg ordre</option>
+                        <c:forEach var="item" items="${sessionScope.ordreindhold}">
+                            <c:if test="${item.brugernavn eq sessionScope.user.username}">
+                                <option value="${item.brugernavn}">Brugernavn: ${item.brugernavn},
+                                    ordreID: ${item.ordreId}, Dato: ${item.dato} </option>
+                            </c:if>
+                        </c:forEach>
+                    </select>
                 </div>
+            </div>
         </div>
 
         <div class="loginknap">
-        <form action="index">
-            <input type="submit" value="Tilbage til forsiden">
-        </form>
+            <form action="index">
+                <input type="submit" value="Tilbage til forsiden">
+            </form>
         </div>
 
 

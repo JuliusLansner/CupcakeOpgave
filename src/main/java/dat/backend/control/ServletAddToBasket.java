@@ -32,8 +32,8 @@ public class ServletAddToBasket extends HttpServlet {
         int amount = Integer.parseInt(antal);
         User user = (User) session.getAttribute("user");
 
-        if(topCake.equals("Vælg top")||bottomCake.equals("Vælg bund")){
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+        if (topCake.equals("Vælg top") || bottomCake.equals("Vælg bund")) {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
         // Henter lister ned med objekter
@@ -64,7 +64,7 @@ public class ServletAddToBasket extends HttpServlet {
 
         for (BottomCake cake : bottomcakeList) { //Henter bottomcake objektet
             if (cake.getNavn().equals(bottomCake)) {
-                System.out.println("navn på kage"+cake.getNavn());
+                System.out.println("navn på kage" + cake.getNavn());
                 bottomCake1 = cake;
             }
         }
@@ -75,18 +75,18 @@ public class ServletAddToBasket extends HttpServlet {
         }
 
 
-        Product newProduct = new Product(topCake1.getNavn(), bottomCake1.getNavn(), bottomCake1.getPris() + topCake1.getPris(),amount);
+        Product newProduct = new Product(topCake1.getNavn(), bottomCake1.getNavn(), bottomCake1.getPris() + topCake1.getPris(), amount);
 
-        ArrayList<Product>kurvIndholdNyt = new ArrayList<>();
-        ArrayList<Product>kurvindholdFør = (ArrayList<Product>) session.getAttribute("kurvindhold");
+        ArrayList<Product> kurvIndholdNyt = new ArrayList<>();
+        ArrayList<Product> kurvindholdFør = (ArrayList<Product>) session.getAttribute("kurvindhold");
 
-        for(Product product:kurvindholdFør){ // Adder alle produkter fra tidligere arrayliste til den nye
+        for (Product product : kurvindholdFør) { // Adder alle produkter fra tidligere arrayliste til den nye
             kurvIndholdNyt.add(product);
         }
 
         kurvIndholdNyt.add(newProduct);
 
-        session.setAttribute("kurvindhold",kurvIndholdNyt);
+        session.setAttribute("kurvindhold", kurvIndholdNyt);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

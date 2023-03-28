@@ -10,29 +10,28 @@
     </jsp:attribute>
 
 
+    <jsp:body>
 
-  <jsp:body>
+        <h2>Du kan registrere dig her (please ik' vælg admin)</h2>
+        <div class="loginbuttons">
+            <form action="${pageContext.request.contextPath}/ServletCreateUser" method="post">
+                <label for="brugernavn">Brugernavn: </label>
+                <input type="text" id="brugernavn" name="brugernavn"/>
 
-    <h2>Du kan registrere dig her (please ik' vælg admin)</h2>
-    <div class ="loginbuttons">
-      <form action="${pageContext.request.contextPath}/ServletCreateUser" method="post">
-        <label for="brugernavn">Brugernavn: </label>
-        <input type="text" id="brugernavn" name="brugernavn"/>
+                <label for="kodeord">Adgangskode: </label>
+                <input type="password" id="kodeord" name="kodeord"/>
 
-        <label for="kodeord">Adgangskode: </label>
-        <input type="password" id="kodeord" name="kodeord"/>
+                <label for="rolle">Rolle: </label>
+                <input type="text" id="rolle" name="rolle"/>
 
-        <label for="rolle">Rolle: </label>
-        <input type="text" id="rolle" name="rolle"/>
+                <input class="signupknap" type="submit" value="Opret bruger"/>
 
-        <input class="signupknap" type="submit"  value="Opret bruger"/>
-
-      </form>
-      <form action="index.jsp">
+            </form>
+            <form action="index.jsp">
 
 
-        <input class="signupknap signup-tilbage" type="submit" value="Tilbage til forsiden">
-      </form>
-    </div>
-  </jsp:body>
+                <input class="signupknap signup-tilbage" type="submit" value="Tilbage til forsiden">
+            </form>
+        </div>
+    </jsp:body>
 </t:pagetemplate>

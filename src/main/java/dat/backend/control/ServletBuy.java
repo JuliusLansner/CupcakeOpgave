@@ -21,8 +21,8 @@ public class ServletBuy extends HttpServlet {
         int orderId = 0;
         boolean ifloggedin = (boolean) session.getAttribute("ifloggedin");
 
-        if(ifloggedin==false){
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+        if (ifloggedin == false) {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
         try {
@@ -31,16 +31,16 @@ public class ServletBuy extends HttpServlet {
             e.printStackTrace();
         }
 
-        ArrayList<Product>currentBasket = new ArrayList<>(); // Laver ArrayList til at holde på nuværende kurv.
+        ArrayList<Product> currentBasket = new ArrayList<>(); // Laver ArrayList til at holde på nuværende kurv.
 
         currentBasket = (ArrayList<Product>) session.getAttribute("kurvindhold"); //Så har den alle produkter i kurven
 
-        for(Product product: currentBasket){
-            ProduktFacade.createProduct(product.getTop(), product.getBottom(), product.getPrice(),orderId, String.valueOf(product.getAmount()));
+        for (Product product : currentBasket) {
+            ProduktFacade.createProduct(product.getTop(), product.getBottom(), product.getPrice(), orderId, String.valueOf(product.getAmount()));
         }
 
 
-        request.getRequestDispatcher("index").forward(request,response);
+        request.getRequestDispatcher("index").forward(request, response);
     }
 
     @Override

@@ -5,23 +5,20 @@ import dat.backend.model.exceptions.DatabaseException;
 
 import java.sql.SQLException;
 
-public class UserFacade
-{
-    public static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException
-    {
+public class UserFacade {
+    public static User login(String username, String password, ConnectionPool connectionPool) throws DatabaseException {
         return UserMapper.login(username, password, connectionPool);
     }
 
-    public static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException
-    {
+    public static User createUser(String username, String password, String role, ConnectionPool connectionPool) throws DatabaseException {
         return UserMapper.createUser(username, password, role, connectionPool);
     }
 
     public static void indsætBeløb(int beløb, String brugernavn, ConnectionPool connectionPool) throws DatabaseException {
-         UserMapper.indsætBeløb(beløb, brugernavn, connectionPool);
+        UserMapper.indsætBeløb(beløb, brugernavn, connectionPool);
     }
 
-    public static int watchSaldo(String username){
+    public static int watchSaldo(String username) {
         ConnectionPool connectionPool = new ConnectionPool();
         int saldo = 0;
         try {
@@ -31,7 +28,7 @@ public class UserFacade
         }
 
         try {
-            saldo = UserMapper.watchSaldo(connectionPool,username);
+            saldo = UserMapper.watchSaldo(connectionPool, username);
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
@@ -40,14 +37,14 @@ public class UserFacade
 
     public static void updateSaldo(String brugernavn, int nyBrugerSaldo) throws SQLException, DatabaseException {
         ConnectionPool connectionPool = new ConnectionPool();
-        try{
+        try {
             connectionPool.getConnection();
-        } catch (SQLException sqlException){
+        } catch (SQLException sqlException) {
             throw new DatabaseException(sqlException, "could not update user saldo" + brugernavn);
         }
         try {
-            UserMapper.updateSaldo(brugernavn,nyBrugerSaldo,connectionPool);
-        } catch (DatabaseException e){
+            UserMapper.updateSaldo(brugernavn, nyBrugerSaldo, connectionPool);
+        } catch (DatabaseException e) {
             e.printStackTrace();
         }
     }

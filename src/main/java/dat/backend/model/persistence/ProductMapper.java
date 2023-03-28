@@ -24,7 +24,7 @@ public class ProductMapper {
             pre.executeUpdate();
 
             generatedKeys = pre.getGeneratedKeys();
-            while (generatedKeys.next()){
+            while (generatedKeys.next()) {
                 productId = generatedKeys.getInt(1);
             }
 
@@ -44,18 +44,18 @@ public class ProductMapper {
     }
 
 
-    static ArrayList<Product> findProduct(ConnectionPool connectionPool,int orderId) throws DatabaseException {
-        String sql ="SELECT * FROM cupcake.produkt WHERE ordreid = "+orderId;
+    static ArrayList<Product> findProduct(ConnectionPool connectionPool, int orderId) throws DatabaseException {
+        String sql = "SELECT * FROM cupcake.produkt WHERE ordreid = " + orderId;
         Product product = null;
 
         ArrayList<Product> products = new ArrayList<>();
 
-        try(Connection connection = connectionPool.getConnection()){
+        try (Connection connection = connectionPool.getConnection()) {
 
-            try(PreparedStatement pre = connection.prepareStatement(sql)){
+            try (PreparedStatement pre = connection.prepareStatement(sql)) {
                 ResultSet rs = pre.executeQuery(); //Laver resultset baseret på ordre fra databasen
 
-                while(rs.next()){
+                while (rs.next()) {
                     int produktid = rs.getInt(1);
                     String top = rs.getString(2);
                     String bottom = rs.getString(3);
@@ -63,24 +63,24 @@ public class ProductMapper {
                     int orderid = rs.getInt(5);
                     int amount = rs.getInt(6);
 
-                    product = new Product(produktid,top,bottom,price,orderid,amount);
+                    product = new Product(produktid, top, bottom, price, orderid, amount);
                     products.add(product);
                 }
-            }catch (SQLException ex){
+            } catch (SQLException ex) {
                 throw new DatabaseException(ex, "Something with the sql or the java syntax is wrong");
             }
 
-        }catch(SQLException e){
+        } catch (SQLException e) {
             throw new DatabaseException(e, "Error logging in. Something went wrong with the database");
         }
         return products;
     }
 
-    static void deleteAllProductsWithOrderId(ConnectionPool connectionPool,int orderId){
-        String sql = "DELETE FROM produkt WHERE ordreid = " +orderId;
+    static void deleteAllProductsWithOrderId(ConnectionPool connectionPool, int orderId) {
+        String sql = "DELETE FROM produkt WHERE ordreid = " + orderId;
 
-        try(Connection connection = connectionPool.getConnection();) {
-            try(PreparedStatement pre = connection.prepareStatement(sql)){
+        try (Connection connection = connectionPool.getConnection();) {
+            try (PreparedStatement pre = connection.prepareStatement(sql)) {
                 pre.executeUpdate();
             }
         } catch (SQLException e) {
@@ -89,11 +89,11 @@ public class ProductMapper {
 
     }
 
-    static void deleteProductWithProductId(ConnectionPool connectionPool,int productId){
-        String sql = "DELETE FROM produkt WHERE produktid = " +productId;
+    static void deleteProductWithProductId(ConnectionPool connectionPool, int productId) {
+        String sql = "DELETE FROM produkt WHERE produktid = " + productId;
 
-        try(Connection connection = connectionPool.getConnection();) {
-            try(PreparedStatement pre = connection.prepareStatement(sql)){
+        try (Connection connection = connectionPool.getConnection();) {
+            try (PreparedStatement pre = connection.prepareStatement(sql)) {
                 pre.executeUpdate();
             }
         } catch (SQLException e) {
@@ -101,7 +101,6 @@ public class ProductMapper {
         }
 
     }
-
 
 
 }

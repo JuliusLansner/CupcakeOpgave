@@ -27,46 +27,43 @@
         </div>
 
 
+        <form action="ServletTilføjTilKurv" method="get">
 
-             <form action="ServletTilføjTilKurv" method="get">
+            <select name="bottom" id="bottom">
+                <option value="Vælg bund">Vælg bund</option>
+                <c:forEach var="item" items="${sessionScope.bottomliste}">
+                    <option value="${item.navn}">${item.navn}</option>
+                </c:forEach>
+            </select>
 
-                 <select name="bottom" id="bottom">
-                     <option value="Vælg bund">Vælg bund</option>
-                     <c:forEach var="item" items="${sessionScope.bottomliste}">
-                         <option value="${item.navn}">${item.navn}</option>
-                     </c:forEach>
-                 </select>
+            <select name="top" id="top">
+                <option value="Vælg top">Vælg top</option>
+                <c:forEach var="item" items="${sessionScope.topliste}">
+                    <option value="${item.navn}">${item.navn}</option>
+                </c:forEach>
+            </select>
 
-                 <select name="top" id="top">
-                     <option value="Vælg top">Vælg top</option>
-                     <c:forEach var="item" items="${sessionScope.topliste}">
-                         <option value="${item.navn}">${item.navn}</option>
-                     </c:forEach>
-                 </select>
+            <select name="antal" id="antal">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
 
-                 <select name="antal" id="antal">
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                     <option value="4">4</option>
-                 </select>
-
-                 <c:if test="${sessionScope.user != null}">
-                     <form action="ServletTilføjTilKurv">
-                         <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj" value="Læg i kurv"><br>
-                     </form>
-                 </c:if>
-             </form>
-
-
-
+            <c:if test="${sessionScope.user != null}">
+                <form action="ServletTilføjTilKurv">
+                    <input type="submit" id="tilføj" name="tilføj" placeholder="Tilføj" value="Læg i kurv"><br>
+                </form>
+            </c:if>
+        </form>
 
 
         <c:if test="${sessionScope.user == null}">
             <p>Login for at tilføje til kurv!</p>
         </c:if>
 
-        <img class="cupcake-bottom-picture" src="${pageContext.request.contextPath}/images/Cupcake-Transparent-Background-2.png" alt=""/>
+        <img class="cupcake-bottom-picture"
+             src="${pageContext.request.contextPath}/images/Cupcake-Transparent-Background-2.png" alt=""/>
     </jsp:body>
 
 </t:pagetemplate>

@@ -61,16 +61,16 @@ public class UserMapper {
         // sql statement that takes two paramenters and stores in a String
         String penge = "UPDATE bruger SET saldo = saldo + ? WHERE brugernavn = ?";
 
-            try (Connection connection = connectionPool.getConnection();
-                 PreparedStatement statement = connection.prepareStatement(penge)) {
+        try (Connection connection = connectionPool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(penge)) {
 
-                statement.setInt(1, beløb);
-                statement.setString(2, brugernavn);
-                statement.executeUpdate();
+            statement.setInt(1, beløb);
+            statement.setString(2, brugernavn);
+            statement.executeUpdate();
 
-            } catch (SQLException ex) {
-                throw new DatabaseException(ex, "Could not update account balance for: " + brugernavn);
-            }
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Could not update account balance for: " + brugernavn);
+        }
     }
 
     public static int watchSaldo(ConnectionPool connectionPool, String username) throws DatabaseException {
@@ -81,7 +81,7 @@ public class UserMapper {
         try (Connection connection = connectionPool.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setString(1,username);
+            statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
@@ -101,9 +101,9 @@ public class UserMapper {
         try (Connection connection = connectionPool.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(update);
             preparedStatement.setInt(1, nyBrugerSaldo);
-            preparedStatement.setString(2,brugernavn);
+            preparedStatement.setString(2, brugernavn);
             preparedStatement.executeUpdate();
-        } catch (SQLException sqlException){
+        } catch (SQLException sqlException) {
             throw new DatabaseException(sqlException, "could not update user saldo" + brugernavn);
         }
     }

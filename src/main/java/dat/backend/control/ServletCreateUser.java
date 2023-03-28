@@ -17,10 +17,10 @@ public class ServletCreateUser extends HttpServlet {
     private ConnectionPool connectionPool;
 
     @Override
-    public void init() throws ServletException
-    {
+    public void init() throws ServletException {
         this.connectionPool = ApplicationStart.getConnectionPool();
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.sendRedirect("index.jsp");
@@ -30,31 +30,25 @@ public class ServletCreateUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-        //session.setAttribute("user", null); // invalidating user object in session scope
-        //String username = request.getParameter("username");
-        //String password = request.getParameter("password");
-        //String role = request.getParameter("role");
+
         String nyBrugernavn;
         String nyPassword;
         String nyRole;
 
-            nyBrugernavn = request.getParameter("brugernavn");
-            nyPassword = request.getParameter("kodeord");
-            nyRole = request.getParameter("rolle");
-            session.setAttribute("brugernavn",nyBrugernavn);
-            session.setAttribute("kodeord",nyPassword);
-            session.setAttribute("rolle",nyRole);
+        nyBrugernavn = request.getParameter("brugernavn");
+        nyPassword = request.getParameter("kodeord");
+        nyRole = request.getParameter("rolle");
+        session.setAttribute("brugernavn", nyBrugernavn);
+        session.setAttribute("kodeord", nyPassword);
+        session.setAttribute("rolle", nyRole);
 
-        try
-        {
-            UserFacade.createUser(nyBrugernavn, nyPassword, nyRole,connectionPool);
+        try {
+            UserFacade.createUser(nyBrugernavn, nyPassword, nyRole, connectionPool);
 
             response.sendRedirect("index");
 
 
-        }
-        catch (DatabaseException e)
-        {
+        } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
