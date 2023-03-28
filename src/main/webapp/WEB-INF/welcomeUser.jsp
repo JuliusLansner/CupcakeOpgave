@@ -37,7 +37,7 @@
                 </div>
         </div>
 
-        <div class="backToFrontPage">
+        <div class="loginknap">
         <form action="index">
             <input type="submit" value="Tilbage til forsiden">
         </form>
