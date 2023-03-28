@@ -40,7 +40,7 @@
 
         <div class="nej">
             <form action="index">
-                <input type="submit" value="Tilbage til forsiden">
+                <input class="back-btn" type="submit" value="Tilbage til forsiden">
             </form>
         </div>
 

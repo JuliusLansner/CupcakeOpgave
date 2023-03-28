@@ -86,6 +86,7 @@ th, td {
 }
 
 #ordre {
+    width: 90% !important;
     background-color: white !important;
     color: #333333 !important;
     /*font-family: Montserrat, sans-serif !important;*/
@@ -221,6 +222,17 @@ h2 {
     margin-top: 5px !important;
 }
 
+.back-btn {
+    background-color: #04143B !important;
+    border-radius: 5px;
+    color: white !important;
+    box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    -webkit-box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    -moz-box-shadow: 0px 1px 16px -4px rgba(0, 0, 0, 0.55);
+    padding: 8px 20px !important;
+    margin-top: 25px !important;
+}
+
 .kortinfo {
     width: 200px;
     height: 40px;
@@ -254,8 +266,5 @@ body {
     background-color: #f3f3f5;
 }
 
-.dropdown-menu{
-    left:-250px !important;
-}
 
 
