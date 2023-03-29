@@ -79,7 +79,7 @@
                             <img src="${pageContext.request.contextPath}/images/bag.png" width="30" alt="Kurv">
                         </button>
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu dropdown-menu-right" id="basket-dropdown" aria-labelledby="dropdownMenuButton">
                             <c:forEach var="item" items="${sessionScope.kurvindhold}">
                                 <form method="get" action="ServletRemoveFromBasket">
                                     <!-- Det som bliver sendt til servlet -->
