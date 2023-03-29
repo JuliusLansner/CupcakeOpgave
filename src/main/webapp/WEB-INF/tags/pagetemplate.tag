@@ -65,7 +65,9 @@
                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/createuser.jsp">Opret
                                     bruger</a>
                             </c:if>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Log ud</a>
+                            <c:if test="${sessionScope.user != null}">
+                                <a class="dropdown-item" href="${pageContext.request.contextPath}/logout">Log ud</a>
+                            </c:if>
                         </div>
                     </div>
 

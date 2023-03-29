@@ -1,5 +1,6 @@
 package dat.backend.control;
 
+import dat.backend.model.entities.Ordre;
 import dat.backend.model.entities.Product;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
@@ -46,6 +47,14 @@ public class ServletToBuypage extends HttpServlet {
         } catch (DatabaseException e) {
             e.printStackTrace();
         }
+
+        try {
+            ArrayList<Ordre> ordrelist = OrdreFacade.getOrdrelist();
+            session.setAttribute("ordreindhold",ordrelist);
+        } catch (DatabaseException e) {
+            e.printStackTrace();
+        }
+
 
         int belob = 0;
         for (Product product : test) {
