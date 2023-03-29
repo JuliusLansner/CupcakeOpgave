@@ -39,8 +39,8 @@
                     <label class="saldolabel"> Din saldo: ${sessionScope.userSaldo}</label> <br> <br>
                     <button type="submit">Køb</button>
                 </div>
-
             </details>
         </form>
+
     </jsp:body>
 </t:pagetemplate>
