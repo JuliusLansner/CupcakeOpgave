@@ -16,7 +16,7 @@
 
         <form action="ServletBuy" method="get">
 
-            <details class="kortinfo" style="cursor: pointer">
+            <details class="kortinfo" id="kort" style="cursor: pointer">
                 <summary class="infosum" style="list-style-type: none; border: 1px solid black; padding: 10px;">Betal
                     med kort
                 </summary>
@@ -31,7 +31,7 @@
 
 
         <form action="ServletToBuypage" method="post">
-            <details class="walletinfo" style="cursor: pointer">
+           <details class="walletinfo" id="wallet" style="cursor: pointer">
                 <summary class="infosum" style="list-style-type: none; border: 1px solid black; padding: 10px;">Betal
                     med din wallet
                 </summary>
