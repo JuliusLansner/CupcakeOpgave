@@ -54,7 +54,7 @@ public class Index extends HttpServlet {
         session.setAttribute("bottomliste", bottomCakes);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
-
+// :)
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
